@@ -1,0 +1,48 @@
+.page-body {
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+.page-section {
+    position: relative;
+    width: 90%;
+    left: 5%;
+}
+.section-body {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 2upx 2upx 10upx rgba(0, 0, 0, 0.4);
+}
+.hide {
+    position: fixed;
+    left: 105%;
+}
+.separator {
+    height: 5vw;
+}
+.text {
+    font-size: 30upx;
+}
+.text-mini {
+    font-size: 20upx;
+}
+.text-small {
+    font-size: 24upx;
+}
+.text-large {
+    font-size: 37upx;
+}
+.text-bold {
+    font-weight: bold;
+}
+.text-blue {
+    color: #0092d4;
+}
+.text-gray {
+    color: #666;
+}
+.speed-up {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}

@@ -68,7 +68,7 @@ export default {
         // 前往首页
         gotoIndex () {
             uni.switchTab({
-                url: '../index/index'
+                url: '../map/map'
             })
         }
     },

@@ -18,12 +18,12 @@
 			refresh () {
 				this.url = ''
 				let timer = setTimeout(function () {
-					this.url = 'http://123.234.129.237:8002/SdForecast/MapSec/Map.html'
+					this.url = 'http://123.234.129.237:8002/SdForecast/MapSec/Map.html?city=青岛'
 					clearTimeout(timer)
 				}.bind(this), 100)
 			}
 		},
-		onNavigationBarButtonTap () {
+		onNavigationBarButtonTap (e) {
 			this.refresh()
 		}
 	}

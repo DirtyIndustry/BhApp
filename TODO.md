@@ -19,3 +19,5 @@ DONE... change background image
 DONE... ocean forecast page styling  
 DONE... warning list page styling  
 DONE... city forecast page styling  
+DONE... weather forecast page styling  
+image page styling  

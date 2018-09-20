@@ -10,7 +10,7 @@
 			<view style="position: fixed; width: 100%; left: 0; opacity: 0.9; z-index: 9;">
 				<!-- 布局右侧宽度固定，左侧自适应 -->
 				<view class="container section-body">
-					<view class="main text-large text-bold text-blue">
+					<view class="main text-large text-bold text-green">
 						{{cityName}}地区预报
 					</view>
 					<view class="sidebar">
@@ -25,7 +25,7 @@
 			<view style="height: 100upx;" />
 			<!-- #endif -->
 			<!-- #ifdef APP-PLUS -->
-			<view class="page-section header text-large text-bold text-blue">{{cityName}}地区预报</view>
+			<view class="page-section header text-large text-bold text-green">{{cityName}}地区预报</view>
 			<view style="height: 20upx;" />
 			<!-- #endif -->
 			<!-- 天气预报模块 -->
@@ -509,7 +509,6 @@
 	@import "../../common/generic.css";
 
 	.header {
-		/* background-color: #fff; */
 		height: 80upx;
 		display: flex;
 		align-items: center;
@@ -578,7 +577,7 @@
 
 	/* 5日天气预报非最右边的列 添加右边框 */
 	.fiveday-column-left {
-		border-right: 1upx solid #000000;
+		border-right: 1upx solid #000;
 	}
 
 	/* 5日天气预报中每列中的单元格 */

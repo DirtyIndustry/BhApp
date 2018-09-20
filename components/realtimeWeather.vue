@@ -108,7 +108,7 @@ export default {
 }
 
 .text-huge {
-    color: #0092d4;
+    color: #068784;
     font-size: 120upx;
     font-weight: bold;
 }

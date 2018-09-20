@@ -23,3 +23,5 @@ DONE... weather forecast page styling
 DONE... image page styling  
 DONE... fishery forecast data replenish  
 DONE... app name and version  
+DONE... about page change copyright owner  
+DONE... about page styling  

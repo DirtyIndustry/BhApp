@@ -8,17 +8,7 @@
             <view class="strip-text text">{{appname}}</view>
             <view class="strip-text text">版本：{{appversion}}</view>
         </view>
-        <view class="section-bottom">
-            <view class="column-bottom column-bottom-left">
-                <view class="bottom-content bottom-content-left">
-                    <view class="bottom-text-small text-small">山东省海洋与渔业厅</view>
-                    <view class="bottom-text-small text-small">山东海洋预报台</view>
-                </view>
-            </view>
-            <view class="column-bottom column-bottom-right">
-                <view class="bottom-content bottom-content-right text">版权所有</view>
-            </view>
-        </view>
+        <view class="section-bottom text">国家海洋局北海预报中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版权所有</view>
     </view>
 </template>
 
@@ -58,7 +48,8 @@ export default {
     position: absolute;
     bottom: 0;
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon-container {
@@ -84,42 +75,5 @@ export default {
     color: #666;
     font-size: 34upx;
 }
-.text-small {
-    color: #666;
-    font-size: 30upx;
-}
 
-.column-bottom {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.column-bottom-left {
-    flex-direction: row-reverse;
-}
-.column-bottom-right {
-    flex-direction: row;
-}
-
-.bottom-content {
-    width: 75%;
-    height: 100upx;
-    display: flex;
-}
-.bottom-content-left {
-    flex-direction: column;
-}
-.bottom-content-right {
-    align-items: center;
-    justify-content: center;
-}
-
-.bottom-text-small {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 </style>

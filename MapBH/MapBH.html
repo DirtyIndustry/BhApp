@@ -1404,7 +1404,6 @@
             //调用初始化函数地图
             init()
             City()
-            // requestData('http://123.234.129.238:8001/MyWebService.asmx/GetRefinedForecast_2018', 'name=admin&areaflg=山东&city=青岛', {})
             loadOceanInfo()
             loadCityInfo('青岛', infoCityQD)
             loadCityInfo('日照', infoCityRZ)
@@ -1491,7 +1490,7 @@
         // 向服务器请求城市信息
         const loadCityInfo = function (city, output) {
             let url = hosturl + 'GetSDSevenCity_0831'
-            let data = 'name=admin&areaflg=山东&city=' + city
+            let data = 'name=admin&areaflg=北海&city=' + city
             let xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
@@ -1537,7 +1536,7 @@
         // 向服务器请求渔场信息
         const loadFisheryInfo = function () {
             let url = hosturl + 'GetFisheriesForecast_0831'
-            let data = 'name=admin&areaflg=山东'
+            let data = 'name=admin&areaflg=北海'
             let xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4

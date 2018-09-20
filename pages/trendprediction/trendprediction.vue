@@ -18,7 +18,7 @@ export default {
             let that = this
             uni.request({
                 url: appsettings.hosturl + 'GetTrendPrediction',
-                data: {name: 'admin', areaflg: '山东'},
+                data: {name: 'admin', areaflg: '北海'},
                 method: 'POST',
                 success: function (res) {
                     console.log('成功获取趋势预测')

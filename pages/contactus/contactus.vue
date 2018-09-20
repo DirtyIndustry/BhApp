@@ -111,7 +111,7 @@ methods: {
             url: appsettings.hosturl + 'GetBolMessage_0104',
             data: {
                 name: 'admin',
-                areaflg: '山东',
+                areaflg: '北海',
                 MESSAGE_NAME: that.postername,
                 iphonenumber: that.postercontact,
                 messagelanage: that.postcontent

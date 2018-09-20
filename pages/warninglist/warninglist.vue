@@ -129,7 +129,7 @@ export default {
             let that = this
             uni.request({
                 url: appsettings.hosturl + 'GetDangeWarning_0816',
-                data: {name: 'admin', areaflg: '山东', filename: filename},
+                data: {name: 'admin', areaflg: '北海', filename: filename},
                 method: 'POST',
                 success: function (res) {
                     console.log('[服务器]: 返回 预警报地址')

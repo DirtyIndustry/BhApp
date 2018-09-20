@@ -170,7 +170,7 @@
 				this.completedRequestCount = 0
 				this.loadShandongData(city)
 			},
-			// 读取山东预报数据 包括天气 潮汐 近海 浴场 精细化 五日 威海专项
+			// 读取北海预报数据 包括天气 潮汐 近海 浴场 精细化 五日 威海专项
 			loadShandongData (cityname) {
 				let that = this
 				uni.request({
@@ -178,10 +178,10 @@
 					data: {name: 'admin', city: cityname},
 					method: 'POST',
 					success: function (res) {
-						console.log('[服务器]: 返回 山东预报数据')
+						console.log('[服务器]: 返回 北海预报数据')
 						// 判断返回数据有效性
 						if (!res.data.d | res.data.d === '无权访问该接口' | res.data.d === '无该地区数据') { // 返回的值为空
-							console.log('[服务器]: 返回 山东预报数据 返回值为空')
+							console.log('[服务器]: 返回 北海预报数据 返回值为空')
 							return false
 						}
 						res = JSON.parse(res.data.d)
@@ -349,7 +349,7 @@
 
 					}, // success-request
 					fail: function (res) {
-						console.log('[服务器]: 请求 山东预报数据 失败')
+						console.log('[服务器]: 请求 北海预报数据 失败')
 						that.completedRequestCount++
 					},
 					complete: function (res) {

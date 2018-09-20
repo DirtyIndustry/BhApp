@@ -35,7 +35,7 @@
                 let that = this
                 uni.request({
                     url: appsettings.hosturl + 'GetSatelliteCloud_ZG_0905',
-                    data: { name: 'admin', areaflg: '山东', flg: source },
+                    data: { name: 'admin', areaflg: '北海', flg: source },
                     method: 'POST',
                     success: function (res) {
                         console.log('[服务器]: 返回 卫星云图')

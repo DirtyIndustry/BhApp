@@ -1,6 +1,6 @@
 <template>
 <view class="page-body">
-    <image src="../../static/Images/back_images.jpg" mode="aspectFill" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: -1;"/>
+    <image src="../../static/Images/back_images.png" mode="aspectFill" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: -1;"/>
     <flowTabbar leftLabel="风暴潮" middleLabel="海浪警报" rightLabel="海冰警报" @tabchange="switchTab"></flowTabbar>
     <view style="height: 160upx;" />
     <view>

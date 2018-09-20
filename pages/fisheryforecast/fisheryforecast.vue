@@ -84,19 +84,7 @@ export default {
                     }
                     that.fisheryData.length = 0
                     for(let i = 0; i < resarr.length; i++) {
-                        switch (resarr[i].FORECASTAREA) {
-                            case '渤海湾渔场':
-                            case '莱州湾渔场':
-                            case '烟威渔场':
-                            case '威东渔场':
-                            case '青海渔场':
-                            case '石岛渔场':
-                            case '石东渔场':
-                                that.fisheryData.push(resarr[i])
-                                break
-                            default:
-                                break
-                        }
+                        that.fisheryData.push(resarr[i])
                     }
                 } // end-success
             }) // end-request

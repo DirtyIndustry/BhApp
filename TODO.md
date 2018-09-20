@@ -21,4 +21,5 @@ DONE... warning list page styling
 DONE... city forecast page styling  
 DONE... weather forecast page styling  
 DONE... image page styling  
-fishery forecast data replenish  
+DONE... fishery forecast data replenish  
+app name and version  

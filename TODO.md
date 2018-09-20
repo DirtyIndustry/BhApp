@@ -8,8 +8,9 @@ DONE... change navibar color
 DONE... change tabbar color  
 DONE... change map button color  
 DONE... change map text color  
-change menu page background image  
-change menu page button border color  
-change menu page button icon color  
-change menu page button text color  
+DONE... change menu page background image  
+DONE... change menu page button border color  
+DONE... change menu page button icon color  
+DONE... change menu page button text color  
+menu page change button to view with hover-class  
 menu page button shadow style  

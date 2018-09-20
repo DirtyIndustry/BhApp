@@ -254,17 +254,9 @@ export default {
             mask: true
         })
         this.requestWarning()
-        // // 10秒后关闭toast
-        // setTimeout(function () {
-        //     uni.hideLoading()
-        // }.bind(this), 10000)
     },
     onPullDownRefresh() {
         this.requestWarning()
-        // // 10秒后关闭提示
-        // setTimeout(function () {
-        //     uni.stopPullDownRefresh()
-        // }.bind(this), 10000)
     }
 }
 </script>

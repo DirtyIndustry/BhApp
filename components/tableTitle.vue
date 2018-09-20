@@ -1,7 +1,7 @@
 <template>
     <view class="uni-flex uni-row title-section">
         <!-- 标题 -->
-        <view class="title text-large text-bold text-blue">
+        <view class="title text-large text-bold text-green">
             <image v-if="icon !== ''" class="title-icon" :src="icon" mode="widthFix" />
             &nbsp;{{title}}
         </view>

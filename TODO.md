@@ -17,3 +17,5 @@ DONE... menu page button shadow style
 DONE... menu page button order  
 DONE... change background image  
 DONE... ocean forecast page styling  
+DONE... warning list page styling  
+DONE... city forecast page styling  

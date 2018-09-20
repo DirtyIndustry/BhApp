@@ -9,7 +9,7 @@
 			<view style="position: fixed; width: 100%; left: 0; opacity: 0.9; z-index: 9;">
 				<!-- 布局右侧宽度固定，左侧自适应 -->
 				<view class="container section-body">
-					<view class="main text-large text-bold text-blue">
+					<view class="main text-large text-bold text-green">
 						{{cityName}}地区预报
 					</view>
 					<view class="sidebar">
@@ -24,7 +24,7 @@
 			<view style="height: 100upx;" />
 			<!-- #endif -->
 			<!-- #ifdef APP-PLUS -->
-			<view class="page-section header text-large text-bold text-blue">{{cityName}}地区预报</view>
+			<view class="page-section header text-large text-bold text-green">{{cityName}}地区预报</view>
 			<view style="height: 20upx;" />
 			<!-- #endif -->
 			<!-- 潮汐预报模块 -->
@@ -58,19 +58,15 @@
 			</view>
 			<view class="separator" />
 			<!-- 近海预报 -->
-			<view class="page-section">
+			<view class="page-section section-body">
 				<tableTitle :title="inshoreData.location" :date="inshoreTitleDate" icon="../../static/Images/top_left_img_newS.png" />
-				<view class="section-body">
-					<inshoreTableNew :inshoreData="inshoreData" />
-				</view>
+				<inshoreTableNew :inshoreData="inshoreData" />
 			</view>
 			<view class="separator" />
 			<!-- 浴场预报 -->
-			<view class="page-section" v-if="bathsData.showBaths">
+			<view class="page-section section-body" v-if="bathsData.showBaths">
 				<tableTitle title="浴场预报" :date="bathsTitleDate" icon="../../static/Images/top_left_img_newS.png" />
-				<view class="section-body">
-					<bathsTable :bathsData="bathsData.data" />
-				</view>
+				<bathsTable :bathsData="bathsData.data" />
 			</view>
 			<view class="separator" />
 			<!-- 精细化预报 -->

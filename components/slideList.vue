@@ -137,7 +137,7 @@
         align-items: center;
         justify-content: center;
         font-size: 38upx;
-        color: #0092d4;
+        color: #068784;
     }
 
     /* 图标颜色 */

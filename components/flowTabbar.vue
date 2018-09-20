@@ -232,7 +232,7 @@ export default {
 }
 /* 背景按钮组 按钮内层容器 */
 .button-inner-background {
-    color: #0092d4;
+    color: #068784;
 }
 
 /* 下方蓝色指示器 */
@@ -247,7 +247,7 @@ export default {
 }
 /* 背景指示器 */
 .marker-background {
-    background-color: #0092d4;
+    background-color: #068784;
     width: 100%;
     z-index: 6;
 }

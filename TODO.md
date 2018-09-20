@@ -22,4 +22,4 @@ DONE... city forecast page styling
 DONE... weather forecast page styling  
 DONE... image page styling  
 DONE... fishery forecast data replenish  
-app name and version  
+DONE... app name and version  

@@ -10,9 +10,9 @@
             </view>
             <view class="table-row" v-for="(item, index) in data" :key="index">
                 <view class="table-cell border-left text">{{item.seaname}}</view>
-                <view class="table-cell text">{{item.waveheight}}</view>
-                <view class="table-cell text">{{item.wavedir}}</view>
-                <view class="table-cell text">{{item.undercurrent}}</view>
+                <view class="table-cell text" :class="{'text-small': item.waveheight.length > 10}">{{item.waveheight}}</view>
+                <view class="table-cell text" :class="{'text-small': item.wavedir.length > 10}">{{item.wavedir}}</view>
+                <view class="table-cell text" :class="{'text-small': item.undercurrent.length > 10}">{{item.undercurrent}}</view>
             </view>
         </view>
         <view class="separator" />
@@ -56,18 +56,19 @@ export default {
     flex-direction: row;
 }
 .border-top {
-    border-top: 1upx solid #666;
+    border-top: 1px solid #666;
 }
 .border-left {
-    border-left: 1upx solid #666;
+    border-left: 1px solid #666;
 }
 .table-cell {
-    border-bottom: 1upx solid #666;
-    border-right: 1upx solid #666;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 .separator {
     height: 3.5vw;

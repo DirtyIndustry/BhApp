@@ -7,44 +7,44 @@
         <!-- 标题部分 -->
         <view class="page-section">
 
-            <view class="uni-flex uni-row title-section">
-                <!-- 标题 -->
-                <view class="title text text-bold text-blue">
-                    &nbsp;24小时海区预报
-                </view>
-                <!-- 日期 -->
-                <view class="date text-small">{{forecastdate24h}}</view>
-            </view>
             <view class="section-body">
-                <oceanTable :data="oceantable24h"></oceanTable>
+                <view class="uni-flex uni-row title-section">
+                    <!-- 标题 -->
+                    <view class="title text text-bold text-green">
+                        &nbsp;24小时海区预报
+                    </view>
+                    <!-- 日期 -->
+                    <view class="date text-small">{{forecastdate24h}}</view>
+                </view>
+                <oceanTable :data="oceantable24h" />
             </view>
             <!-- 表格下方空白 -->
             <view class="separator"></view>
         
-            <view class="uni-flex uni-row title-section">
-                <!-- 标题 -->
-                <view class="title text text-bold text-blue">
-                    &nbsp;48小时海区预报
-                </view>
-                <!-- 日期 -->
-                <view class="date text-small">{{forecastdate48h}}</view>
-            </view>
             <view class="section-body">
-                <oceanTable :data="oceantable48h"></oceanTable>
+                <view class="uni-flex uni-row title-section">
+                    <!-- 标题 -->
+                    <view class="title text text-bold text-green">
+                        &nbsp;48小时海区预报
+                    </view>
+                    <!-- 日期 -->
+                    <view class="date text-small">{{forecastdate48h}}</view>
+                </view>
+                <oceanTable :data="oceantable48h" />
             </view>
             <!-- 表格下方空白 -->
             <view class="separator"></view>
 
-            <view class="uni-flex uni-row title-section">
-                <!-- 标题 -->
-                <view class="title text text-bold text-blue">
-                    &nbsp;72小时海区预报
-                </view>
-                <!-- 日期 -->
-                <view class="date text-small">{{forecastdate72h}}</view>
-            </view>
             <view class="section-body">
-                <oceanTable :data="oceantable72h"></oceanTable>
+                <view class="uni-flex uni-row title-section">
+                    <!-- 标题 -->
+                    <view class="title text text-bold text-green">
+                        &nbsp;72小时海区预报
+                    </view>
+                    <!-- 日期 -->
+                    <view class="date text-small">{{forecastdate72h}}</view>
+                </view>
+                <oceanTable :data="oceantable72h" />
             </view>
             
             <!-- 页脚空白 -->

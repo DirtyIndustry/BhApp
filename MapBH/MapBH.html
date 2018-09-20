@@ -138,7 +138,7 @@
             height: 50px;
             position: fixed;
             right: 20px;
-            bottom: 100px;
+            bottom: 20px;
             align-items: center;
             justify-content: center;
             z-index: 99;
@@ -510,7 +510,8 @@
 
     <script>
         let map // 地图实体
-        let mapdragging = false
+        let mapdragging = false // 当前是否在拖动/缩放地图
+        let currentmap = '城市' // 当前所选地图 海区/城市/渔场
         // let hosturl = 'http://123.234.129.238:8001/MyWebService.asmx/'
         let hosturl = 'http://123.234.129.237:8001/MyWebService.asmx/'
 
@@ -1236,6 +1237,13 @@
                     })
                 }
 
+                // 缩放地图显隐Marker
+                {
+                    qq.maps.event.addListener(map, 'zoom_changed', function () {
+                        zoomingMap()
+                    })
+                }
+
                 // 海区marker添加点击事件
                 {
                     // 渤海
@@ -1437,6 +1445,7 @@
             xmlhttp.send(data)
         } // end-requestData()
 
+        // 向服务器请求海区数据
         const loadOceanInfo = function () {
             let url = hosturl + 'GetSeaAreaforecastWX_0912'
             let data = 'name=admin&areaflg=北海'
@@ -1628,6 +1637,7 @@
         // 顶部海区按钮点击
         const Ocean = function () {
             console.log('Ocean clicked!')
+            currentmap = '海区'
             // 改变按钮颜色
             selectOcean()
             // 隐藏城市 渔场信息面板
@@ -1675,6 +1685,7 @@
         // 顶部城市按钮点击
         const City = function () {
             console.log('City clicked!')
+            currentmap = '城市'
             // 改变按钮颜色
             selectCity()
             // 隐藏海区 渔场信息面板
@@ -1722,6 +1733,7 @@
         // 顶部渔场按钮点击
         const Fishery = function () {
             console.log('fishery clicked!')
+            currentmap = '渔场'
             // 改变按钮颜色
             selectFishery()
             // 隐藏海区 城市信息面板
@@ -1766,14 +1778,7 @@
             polygonHY.setVisible(true)
             polygonHDong.setVisible(true)
         }
-        // 顶部城市-渔场按钮切换点击样式用
-        /*
-        $(function () {
-            $('.option_button').children().click(function () {
-                $(this).addClass('selected').siblings().removeClass('selected')
-            })
-        })
-        */
+        
         const selectOcean = function () {
             let divocean = document.getElementById('ocean')
             divocean.className = 'ocean selected'
@@ -1798,6 +1803,74 @@
             let divfishery = document.getElementById('fishery')
             divfishery.className = 'fishery selected'
         }
+        
+        // 缩放地图
+        const zoomingMap = function () {
+            switch (currentmap) {
+                case '海区':
+                    // 海区图缩放等级小于4则隐藏markers
+                    if (map.getZoom() < 4) {
+                        markerOceanBH.setVisible(false)
+                        markerOceanHHnorth.setVisible(false)
+                        markerOceanHHmid.setVisible(false)
+                    } else {
+                        markerOceanBH.setVisible(true)
+                        markerOceanHHnorth.setVisible(true)
+                        markerOceanHHmid.setVisible(true)
+                    }
+                    break
+                case '城市':
+                    // 城市地图缩放等级小于5则隐藏markers
+                    if (map.getZoom() < 5) {
+                        markerCityQD.setVisible(false)
+                        markerCityRZ.setVisible(false)
+                        markerCityYT.setVisible(false)
+                        markerCityWH.setVisible(false)
+                        markerCityWF.setVisible(false)
+                        markerCityDY.setVisible(false)
+                        markerCityBZ.setVisible(false)
+                    } else {
+                        markerCityQD.setVisible(true)
+                        markerCityRZ.setVisible(true)
+                        markerCityYT.setVisible(true)
+                        markerCityWH.setVisible(true)
+                        markerCityWF.setVisible(true)
+                        markerCityDY.setVisible(true)
+                        markerCityBZ.setVisible(true)
+                    }
+                    break
+                case '渔场':
+                    if (map.getZoom() < 6) {
+                        markerFishBHWan.setVisible(false)
+                        markerFishLZWan.setVisible(false)
+                        markerFishYW.setVisible(false)
+                        markerFishWD.setVisible(false)
+                        markerFishSDao.setVisible(false)
+                        markerFishSDong.setVisible(false)
+                        markerFishQHai.setVisible(false)
+                        markerFishLHK.setVisible(false)
+                        markerFishLD.setVisible(false)
+                        markerFishHY.setVisible(false)
+                        markerFishHDong.setVisible(false)
+                    } else {
+                        markerFishBHWan.setVisible(true)
+                        markerFishLZWan.setVisible(true)
+                        markerFishYW.setVisible(true)
+                        markerFishWD.setVisible(true)
+                        markerFishSDao.setVisible(true)
+                        markerFishSDong.setVisible(true)
+                        markerFishQHai.setVisible(true)
+                        markerFishLHK.setVisible(true)
+                        markerFishLD.setVisible(true)
+                        markerFishHY.setVisible(true)
+                        markerFishHDong.setVisible(true)
+                    }
+                    break
+                default:
+                    break
+            }
+        }
+
         // 切换普通-卫星地图
         const switchMap = function () {
             console.log('switch button clicked!')
@@ -1888,6 +1961,7 @@
             document.getElementById('fishery_wavelvl72h').innerHTML = obj.WAVELVL72H
             document.getElementById('fishery_wavedir72h').innerHTML = obj.WAVEDIR72H
         }
+    
     </script>
 </body>
 

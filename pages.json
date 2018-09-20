@@ -210,7 +210,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "山东海洋预报",
-		"navigationBarBackgroundColor": "#0092d4",
+		"navigationBarBackgroundColor": "#068784",
 		"backgroundColor": "#F00"
 	},
 
@@ -218,7 +218,7 @@
 		"color": "#EFEFEF",
 		"selectedColor": "#FFFFFF",
 		"borderStyle": "black",
-		"backgroundColor": "#0092d4",
+		"backgroundColor": "#068784",
 		"list": [{
 			"pagePath": "pages/map/map",
 			"iconPath": "static/Images/bottom_loc_first.png",

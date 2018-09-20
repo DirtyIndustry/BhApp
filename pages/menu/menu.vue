@@ -6,9 +6,9 @@
             <view class="menu-row">
                 <!-- 第一行左 -->
                 <view class="menu-cell menu-column">
-                    <view class="menu-button" hover-class="hover" @tap="cityforeTap">
-                        <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/city_img.png" />
-                        <view class="text-large text-green">城市预报</view>
+                    <view class="menu-button" hover-class="hover" @tap="oceanforecastTap">
+                        <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/area_img.png" />
+                        <view class="text-large text-green">海区预报</view>
                     </view>
                 </view>
                 <!-- 第一行右 -->
@@ -23,9 +23,9 @@
             <view class="menu-row">
                 <!-- 第二行左 -->
                 <view class="menu-cell menu-column">
-                    <view class="menu-button" hover-class="hover" @tap="fisheryTap">
-                        <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/fishery_img.png" />
-                        <view class="text-large text-green">渔场预报</view>
+                    <view class="menu-button" hover-class="hover" @tap="cityforeTap">
+                        <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/city_img.png" />
+                        <view class="text-large text-green">城市预报</view>
                     </view>
                 </view>
                 <!-- 第二行右 -->
@@ -87,9 +87,9 @@
                 </view>
                 <!-- 第五行右 -->
                 <view class="menu-cell menu-column">
-                    <view class="menu-button" hover-class="hover" @tap="oceanforecastTap">
-                        <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/area_img.png" />
-                        <view class="text-large text-green">海区预报</view>
+                    <view class="menu-button" hover-class="hover" @tap="fisheryTap">
+                        <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/fishery_img.png" />
+                        <view class="text-large text-green">渔场预报</view>
                     </view>
                 </view>
             </view>

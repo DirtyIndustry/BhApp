@@ -3,7 +3,7 @@
         <view style="height: 40upx;"></view>
         <view class="choose_source">
             <text class="choose-source-header text">数据源:&nbsp;&nbsp;</text>
-            <text class="text text-blue">{{data_source}}&nbsp;&nbsp;</text>
+            <text class="text text-green">{{data_source}}&nbsp;&nbsp;</text>
         </view>
         <view class="separator"></view>
         <picSwiperAlt :imgArray="imageArray" :startIndex="startIndex" :autoStart="autostart" interval="3000"

@@ -4,8 +4,8 @@
         <view class="choose_source">
             <picker @change="source_change" :value="cityIndex" :range="sourceArray">
                 <text class="choose-source-header text">数据源:&nbsp;&nbsp;</text>
-                <text class="text text-blue">{{sourceArray[cityIndex]}}&nbsp;&nbsp;</text>
-                <text class="text text-blue fa fa-angle-down"></text>
+                <text class="text text-green">{{sourceArray[cityIndex]}}&nbsp;&nbsp;</text>
+                <text class="text text-green fa fa-angle-down"></text>
             </picker>
         </view>
         <view class="separator"></view>

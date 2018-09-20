@@ -12,5 +12,6 @@ DONE... change menu page background image
 DONE... change menu page button border color  
 DONE... change menu page button icon color  
 DONE... change menu page button text color  
-menu page change button to view with hover-class  
-menu page button shadow style  
+DONE... menu page change button to view with hover-class  
+DONE... menu page button shadow style  
+menu page button order  

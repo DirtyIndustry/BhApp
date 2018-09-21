@@ -16,14 +16,31 @@
         <!-- 播放控制按钮 -->
         <view class="btn_panel" :class="{ btn_panel_hide: isButtonHide }">
             <view class="btn_box">
-                <view class="button prev" hover-class="btn_click" hover-stay-time="300" @tap="prev">
-                    <view class="prev-icon fa fa-backward" />
+                <view class="btn_cell">
+                    <view class="button prev" hover-class="btn_click" hover-stay-time="300" @tap="prev">
+                        <view class="prev-icon fa fa-backward" />
+                    </view>
                 </view>
-                <view class="button play_stop" hover-class="btn_click" hover-stay-time="300" @tap="play_pause">
-                    <view class="fa" :class="{'play-icon fa-play': !isPlaying, 'fa-pause': isPlaying}" />
+                <view class="btn_cell">
+                    <view class="button play_stop" hover-class="btn_click" hover-stay-time="300" @tap="play_pause">
+                        <view class="fa" :class="{'play-icon fa-play': !isPlaying, 'fa-pause': isPlaying}" />
+                    </view>
                 </view>
-                <view class="button next" hover-class="btn_click" hover-stay-time="300" @tap="next">
-                    <view class="next-icon fa fa-forward" />
+                <view class="btn_cell">
+                    <view class="button next" hover-class="btn_click" hover-stay-time="300" @tap="next">
+                        <view class="next-icon fa fa-forward" />
+                    </view>
+                </view>
+            </view>
+            <view class="btn_back_box">
+                <view class="btn_cell">
+                    <view class="button_bowl prev_bowl" />
+                </view>
+                <view class="btn_cell">
+                    <view class="button_bowl play_stop_bowl" />
+                </view>
+                <view class="btn_cell">
+                    <view class="button_bowl next_bowl" />
                 </view>
             </view>
         </view>
@@ -265,18 +282,22 @@
     .btn_box {
         width: 70%;
         left: 15%;
-        bottom: 160upx;
         height: 200upx;
         display: flex;
-        align-items: center;
-        justify-content: space-around;
+        flex-direction: row;
     }
-
+    .btn_cell {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .button {
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+        box-shadow: 0 3upx 8upx #aaa, inset 0 2upx 3upx #fff;
         background-color: #f7f7f7;
         background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
         background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
@@ -284,9 +305,10 @@
         background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
         background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
         color: #a7a7a7;
+        z-index: 4;
     }
     .btn_click {
-        box-shadow: 0px 1px 6px #aaa, inset 0px 1px 1px #fff;
+        box-shadow: 0 1upx 3upx #aaa, inset 0 1upx 3upx #fff;
         color: #555;
         background: #f5f5f5;
         text-decoration: none;
@@ -305,7 +327,32 @@
         height: 140upx;
         font-size: 55upx;
     }
-
+    
+    .btn_back_box {
+        position: absolute;
+        width: 70%;
+        left: 15%;
+        bottom: 0;
+        height: 200upx;
+        display: flex;
+        flex-direction: row;
+    }
+    .button_bowl {
+        background: #fff;
+        border-top: 2px solid #ddd;
+        z-index: 0;
+        border-radius: 50%;
+        box-shadow: inset 0px 8px 48px #ddd;
+    }
+    .prev_bowl,
+    .next_bowl {
+        width: 140upx;
+        height: 140upx;
+    }
+    .play_stop_bowl {
+        width: 170upx;
+        height: 170upx;
+    }
     .prev-icon {
         position: relative;
         right: 5upx;

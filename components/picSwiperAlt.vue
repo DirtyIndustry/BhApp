@@ -77,11 +77,7 @@
                 isPlaying: false,
                 isButtonHide: false,
                 viewHeight: '538upx',
-                btnTimer: undefined,
-                playbtnclick: false,
-                nextbtnclick: false,
-                prevbtnclick: false,
-                timerlist: []
+                btnTimer: undefined
             }
         },
         computed: {
@@ -141,14 +137,6 @@
                 } else {
                     this.isPlaying = true
                 }
-                if (this.playbtnclick !== true) {
-                    this.playbtnclick = true
-                    let timer = setTimeout(function () {
-                        clearTimeout(timer)
-                        this.playbtnclick = false
-                    }.bind(this), 80)
-                    this.timerlist.push(timer)
-                }
             },
             // 上一张
             prev() {
@@ -159,14 +147,6 @@
                         this.imgindex--
                     }
                     this.initTitle()
-                    if (this.prevbtnclick !== true) {
-                        this.prevbtnclick = true
-                        let timer = setTimeout(function () {
-                            clearTimeout(timer)
-                            this.prevbtnclick = false
-                        }.bind(this), 80)
-                        this.timerlist.push(timer)
-                    }
                 }
             },
             // 下一张
@@ -178,14 +158,6 @@
                         this.imgindex = 0
                     }
                     this.initTitle()
-                    if (this.nextbtnclick !== true) {
-                        this.nextbtnclick = true
-                        let timer = setTimeout(function () {
-                            clearTimeout(timer)
-                            this.nextbtnclick = false
-                        }.bind(this), 80)
-                        this.timerlist.push(timer)
-                    }
                 }
             },
             // 初始化图片标题
@@ -239,10 +211,6 @@
         onUnload () {
             clearTimeout(this.btnTimer)
             this.btnTimer = null
-            for (let i = 0; i < this.timerlist.length; i++) {
-                clearTimeout(this.timerlist[i])
-                this.timerlist[i] = null
-            }
         }
     }
 </script>

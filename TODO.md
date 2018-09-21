@@ -36,4 +36,12 @@ DONE... setting page scroll disable
 DONE... about page scroll disable  
 DONE... stopscroll handler  
 DONE... weihai sp chart grid  
-inshore table two date positions  
+DONE... change inshore and baths models in vuex  
+DONE... apply inshore and baths data in App.vue  
+DONE... apply inshore and baths data in city forecast page  
+DONE... apply inshore and baths data in weather forecast page  
+DONE... apply inshore and baths data in index page and components  
+DONE... inshore table two date positions  
+DONE... change icon  
+DONE... change splash screen  
+manifest  

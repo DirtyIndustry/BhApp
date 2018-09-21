@@ -59,13 +59,13 @@
 			<view class="separator" />
 			<!-- 近海预报 -->
 			<view class="page-section section-body">
-				<tableTitle :title="inshoreData.location" :date="inshoreTitleDate" icon="../../static/Images/top_left_img_newS.png" />
+				<tableTitle :title="inshoreData.location" :date="inshoreData.timeupper" icon="../../static/Images/top_left_img_newS.png" />
 				<inshoreTableNew :inshoreData="inshoreData" />
 			</view>
 			<view class="separator" />
 			<!-- 浴场预报 -->
 			<view class="page-section section-body" v-if="bathsData.showBaths">
-				<tableTitle title="浴场预报" :date="bathsTitleDate" icon="../../static/Images/top_left_img_newS.png" />
+				<tableTitle title="浴场预报" :date="bathsData.time" icon="../../static/Images/top_left_img_newS.png" />
 				<bathsTable :bathsData="bathsData.data" />
 			</view>
 			<view class="separator" />
@@ -298,10 +298,6 @@
 				tideOneChevronLeftShow: false,
 				tideTwoChevronRightShow: true,
 				tideTwoChevronLeftShow: false,
-				// 近海预报日期字符串
-				inshoreTitleDate: '',
-				// 浴场预报日期字符串
-				bathsTitleDate: '',
 				echarts
 			}
 		},
@@ -398,7 +394,6 @@
 				// 任务计数器归零
 				this.completedRequestCount = 0
 				this.setPageLayout(city)
-				this.setTitleDates(city)
 				this.loadShandongData(city)
 			},
 			// 读取北海预报数据 包括天气 潮汐 近海 浴场 精细化 五日 威海专项
@@ -455,14 +450,8 @@
 						that.inshoreData = res.inshoreData
 
 						// 浴场预报
-						// 判断月份和城市
-						if (new Date().getMonth() > 5 & new Date().getMonth() < 9 & cityname === '青岛') {
-							that.bathsData.showBaths = true
-						} else {
-							that.bathsData.showBaths = false
-						}
 						// 写入Vuex
-						that.bathsData.data = res.bathsDatas
+						that.bathsData = res.bathsData
 
 						// 精细化预报
 						// 判断城市
@@ -658,27 +647,6 @@
 						this.bathsData.showBaths = false
 						// 显示威海专项预报
 						this.weihaiData.show = false
-						break
-				}
-			},
-			// 根据城市名称设置近海和浴场预报表头时间
-			setTitleDates (cityname) {
-				let now = new Date()
-				let one = (now.getMonth() + 1) + '月' + now.getDate() + '日'
-				now.setDate(now.getDate() + 1)
-				let two = (now.getMonth() + 1) + '月' + now.getDate() + '日'
-				now.setDate(now.getDate() + 1)
-				let three = (now.getMonth() + 1) + '月' + now.getDate() + '日'
-				now.setDate(now.getDate() + 1)
-				let four = (now.getMonth() + 1) + '月' + now.getDate() + '日'
-				switch (cityname) {
-					case '青岛':
-						this.inshoreTitleDate = ''
-						this.bathsTitleDate = one + '0时至' + two + '0时'
-						break
-					default:
-						this.inshoreTitleDate = one + '0时至' + four + '0时'
-						this.bathsTitleDate = ''
 						break
 				}
 			},
@@ -991,7 +959,6 @@
 		},
 		mounted() {
 			console.log('cityforecast vue mounted.')
-			this.setTitleDates(this.cityName)
 			// 加载时根据当前日期设置日期球文字
             this.setDateballText()
             this.setDateballLeft()

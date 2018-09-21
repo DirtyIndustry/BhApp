@@ -16,13 +16,13 @@
         <!-- 播放控制按钮 -->
         <view class="btn_panel" :class="{ btn_panel_hide: isButtonHide }">
             <view class="btn_box">
-                <view class="button prev" :class="{btn_click: prevbtnclick}" @tap="prev">
+                <view class="button prev" hover-class="btn_click" hover-stay-time="300" @tap="prev">
                     <view class="prev-icon fa fa-backward" />
                 </view>
-                <view class="button play_stop" :class="{btn_click: playbtnclick}" @tap="play_pause">
+                <view class="button play_stop" hover-class="btn_click" hover-stay-time="300" @tap="play_pause">
                     <view class="fa" :class="{'play-icon fa-play': !isPlaying, 'fa-pause': isPlaying}" />
                 </view>
-                <view class="button next" :class="{btn_click: nextbtnclick}" @tap="next">
+                <view class="button next" hover-class="btn_click" hover-stay-time="300" @tap="next">
                     <view class="next-icon fa fa-forward" />
                 </view>
             </view>
@@ -218,7 +218,7 @@
                 this.btnTimer = setTimeout(function(){
                     that.isButtonHide = true
                     that.btnTimer = undefined
-                }, 6000)
+                }, 10000)
             },
             // 图片点击
             picTap () {
@@ -308,19 +308,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0upx 0upx 15upx rgba(0, 0, 0, 0.3);
-        color: #666;
-        background: -webkit-radial-gradient(#fff, rgb(245, 245, 245), #eee); /* Safari 5.1 - 6.0 */
-        background: -o-radial-gradient#fff, (rgb(245, 245, 245), #eee); /* Opera 11.6 - 12.0 */
-        background: -moz-radial-gradient(#fff, rgb(245, 245, 245), #eee); /* Firefox 3.6 - 15 */
-        background: radial-gradient(#fff, rgb(245, 245, 245), #eee); /* 标准的语法 */
+        box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+        background-color: #f7f7f7;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+        background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+        background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+        background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+        background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+        color: #a7a7a7;
     }
     .btn_click {
-        box-shadow: 0upx 0upx 8upx rgba(0, 0, 0, 0.6);
-        background: -webkit-radial-gradient(#fff, #ddd, #ccc); /* Safari 5.1 - 6.0 */
-        background: -o-radial-gradient#fff, (#ddd, #ccc); /* Opera 11.6 - 12.0 */
-        background: -moz-radial-gradient(#fff, #ddd, #ccc); /* Firefox 3.6 - 15 */
-        background: radial-gradient(#fff, #ddd, #ccc); /* 标准的语法 */
+        box-shadow: 0px 1px 6px #aaa, inset 0px 1px 1px #fff;
+        color: #555;
+        background: #f5f5f5;
+        text-decoration: none;
     }
     .prev,
     .next {

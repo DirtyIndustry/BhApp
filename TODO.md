@@ -44,4 +44,6 @@ DONE... apply inshore and baths data in index page and components
 DONE... inshore table two date positions  
 DONE... change icon  
 DONE... change splash screen  
+DONE... change bienvenu page button and text color  
+clean up index page  
 manifest  

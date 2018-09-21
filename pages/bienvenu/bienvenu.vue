@@ -107,8 +107,8 @@ button {
     bottom: 20%;
     left: 30%;
     width: 40%;
-    border-color: #fff;
-    color: #fff;
+    border-color: #232424;
+    color: #232424;
     z-index: 2;
 }
 .skipbutton {
@@ -119,7 +119,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #232424;
     text-decoration: underline;
 }
 </style>

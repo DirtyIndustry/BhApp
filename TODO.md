@@ -35,5 +35,5 @@ DONE... menu page scroll disable
 DONE... setting page scroll disable  
 DONE... about page scroll disable  
 DONE... stopscroll handler  
-weihai sp chart grid  
+DONE... weihai sp chart grid  
 inshore table two date positions  

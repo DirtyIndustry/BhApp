@@ -80,7 +80,8 @@
                 btnTimer: undefined,
                 playbtnclick: false,
                 nextbtnclick: false,
-                prevbtnclick: false
+                prevbtnclick: false,
+                timerlist: []
             }
         },
         computed: {
@@ -146,6 +147,7 @@
                         clearTimeout(timer)
                         this.playbtnclick = false
                     }.bind(this), 80)
+                    this.timerlist.push(timer)
                 }
             },
             // 上一张
@@ -163,6 +165,7 @@
                             clearTimeout(timer)
                             this.prevbtnclick = false
                         }.bind(this), 80)
+                        this.timerlist.push(timer)
                     }
                 }
             },
@@ -181,6 +184,7 @@
                             clearTimeout(timer)
                             this.nextbtnclick = false
                         }.bind(this), 80)
+                        this.timerlist.push(timer)
                     }
                 }
             },
@@ -208,7 +212,7 @@
                 let that = this
                 this.isButtonHide = false
                 if (this.btnTimer !== undefined) {
-                    clearInterval(this.btnTimer)
+                    clearTimeout(this.btnTimer)
                     this.btnTimer = undefined
                 }
                 this.btnTimer = setTimeout(function(){
@@ -231,6 +235,14 @@
             this.isPlaying = this.autoStart
             this.initTitle()
             this.timerStart()
+        },
+        onUnload () {
+            clearTimeout(this.btnTimer)
+            this.btnTimer = null
+            for (let i = 0; i < this.timerlist.length; i++) {
+                clearTimeout(this.timerlist[i])
+                this.timerlist[i] = null
+            }
         }
     }
 </script>

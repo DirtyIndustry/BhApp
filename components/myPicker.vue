@@ -27,11 +27,12 @@
         },
         data() {
             return {
-                show: false,
-                panelshow: false,
-                maskopacity: 0,
-                paneltop: '100%',
-                panelopacity: 0
+                show: false,        // 控件是否显示
+                panelshow: false,   // 按钮框架是否显示
+                maskopacity: 0,     // 背景蒙板透明度
+                paneltop: '100%',   // 按钮框架距顶部的距离
+                panelopacity: 0,    // 按钮框架透明度
+                timerlist: []       // 计时器列表
             }
         },
         watch: {
@@ -45,6 +46,7 @@
                             this.panelopacity = 100
                             this.maskopacity = 100
                         }.bind(this), 0)
+                        this.timerlist.push(timer)
                     } else {
                         this.panelopacity = 0
                         this.maskopacity = 0
@@ -53,6 +55,7 @@
                             this.paneltop = '100%'
                             this.panelshow = false
                         }.bind(this), 300)
+                        this.timerlist.push(timer)
                     }
                 }
             }
@@ -77,6 +80,14 @@
                     clearTimeout(timer)
                     this.$emit('itemSelected', index, item)
                 }.bind(this), 300)
+                this.timerlist.push(timer)
+            }
+        },
+        onUnload () {
+            console.log('myPicker unload.')
+            for (let i = 0; i < this.timerlist.length; i++) {
+                clearTimeout(this.timerlist[i])
+                this.timerlist[i] = null
             }
         }
     }

@@ -34,6 +34,7 @@ export default {
             this.containeropacity = 0
             let timer = setTimeout(function () {
                 clearTimeout(timer)
+                timer = null
                 this.gotoIndex()
             }.bind(this), 200)
             // this.gotoIndex()
@@ -45,6 +46,7 @@ export default {
             utils.storeToLocal('skipbienvenu', true)
             let timer = setTimeout(function () {
                 clearTimeout(timer)
+                timer = null
                 this.gotoIndex()
             }.bind(this), 200)
             // this.gotoIndex()

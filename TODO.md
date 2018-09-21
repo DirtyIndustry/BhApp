@@ -50,4 +50,5 @@ DONE... radar image page delete sources
 DONE... picSwiper button styling  
 DONE... picSwiper clean timer  
 DONE... change fishery map hide markers zooming level  
+DONE... change webservices  
 manifest  

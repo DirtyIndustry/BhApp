@@ -209,7 +209,7 @@
 			loadShandongData (cityname) {
 				let that = this
 				uni.request({
-					url: appsettings.hosturl + 'GetShandongData',
+					url: appsettings.hosturl + 'GetBeihaiData',
 					data: {name: 'admin', city: cityname},
 					method: 'POST',
 					success: function (res) {

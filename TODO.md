@@ -29,8 +29,11 @@ DONE... change 山东 to 北海
 DONE... change map page title  
 DONE... set timers as page properties  
 DONE... clean timer on page unload  
-menu page scroll disable  
-about page scroll disable  
-stopscroll handler  
+DONE... bienvenu page console log  
+DONE... bienvenu page scroll  
+DONE... menu page scroll disable  
+DONE... setting page scroll disable  
+DONE... about page scroll disable  
+DONE... stopscroll handler  
 weihai sp chart grid  
 inshore table two date positions  

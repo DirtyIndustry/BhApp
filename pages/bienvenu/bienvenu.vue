@@ -34,7 +34,6 @@ export default {
             this.containeropacity = 0
             let timer = setTimeout(function () {
                 clearTimeout(timer)
-                timer = null
                 this.gotoIndex()
             }.bind(this), 200)
             // this.gotoIndex()
@@ -46,7 +45,6 @@ export default {
             utils.storeToLocal('skipbienvenu', true)
             let timer = setTimeout(function () {
                 clearTimeout(timer)
-                timer = null
                 this.gotoIndex()
             }.bind(this), 200)
             // this.gotoIndex()
@@ -60,6 +58,7 @@ export default {
                     console.log('[缓存]: 获取 跳过欢迎页')
                     if (res.data === true) {
                         // 跳往首页
+                        console.log('[界面]: 跳转至首页')
                         // setTimeout(function () {
                             that.gotoIndex()
                         // }.bind(that), 100)
@@ -91,7 +90,7 @@ export default {
 .page-body {
     height: 100%;
     flex-grow: 1;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 .container {
     height: 100%;

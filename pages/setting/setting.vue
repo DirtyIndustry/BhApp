@@ -175,7 +175,7 @@
 							let resversion = result[i].version
 							let resappname = result[i].appname
 							// 检查app名称是否相同
-							if (resappname === appsettings.appname) {
+							if (resappname === '北海区海洋预报') {
 								if (that.needUpdate(appsettings.appversion, resversion)) {	//	需要升级
 									// 弹窗提示
 									uni.showModal({

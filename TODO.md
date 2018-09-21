@@ -27,3 +27,10 @@ DONE... about page change copyright owner
 DONE... about page styling  
 DONE... change 山东 to 北海  
 DONE... change map page title  
+set timers as page properties  
+clean timer on page unload  
+menu page scroll disable  
+about page scroll disable  
+stopscroll handler  
+weihai sp chart grid  
+inshore table two date positions  

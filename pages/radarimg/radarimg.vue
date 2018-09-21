@@ -2,11 +2,8 @@
     <view class="wrap" @tap="pageTap">
         <view style="height: 40upx;"></view>
         <view class="choose_source">
-            <picker @change="source_change" :value="cityIndex" :range="sourceArray">
                 <text class="choose-source-header text">数据源:&nbsp;&nbsp;</text>
-                <text class="text text-green">{{sourceArray[cityIndex]}}&nbsp;&nbsp;</text>
-                <text class="text text-green fa fa-angle-down"></text>
-            </picker>
+                <text class="text text-green">中国气象网&nbsp;&nbsp;</text>
         </view>
         <view class="separator"></view>
         <picSwiperAlt :imgArray="imageArray" :startIndex="startIndex" :autoStart="autostart" interval="3000" ref="picswiper"></picSwiperAlt>
@@ -23,34 +20,19 @@
         },
         data() {
             return {
-                cityIndex: 0,
-                data_source: '青岛',
-                sourceArray: ['青岛', '烟台', '潍坊', '威海', '滨州'],
                 imageArray: [],
                 dateArray: [],
                 startIndex: 0,
                 autostart: false
             }
         },
-        computed: {
-            // 当前城市名称
-            cityName: {
-                get() { return this.$store.state.Datas.cityname }
-            }
-        },
         methods: {
-            //切换数据源
-            source_change(e) {
-                this.cityIndex = e.detail.value
-                this.data_source = this.translateCities(this.sourceArray[e.detail.value])
-                this.requestImage(this.data_source)
-            },
             // 向服务器请求图片
-            requestImage(source) {
+            requestImage() {
                 let that = this
                 uni.request({
                     url: appsettings.hosturl + 'GetRadarImages_0905',
-                    data: { name: 'admin', areaflg: '北海', cityname: source },
+                    data: { name: 'admin', areaflg: '北海', cityname: '' },
                     method: 'POST',
                     success: function (res) {
                         console.log('[服务器]: 返回 雷达图')
@@ -75,60 +57,20 @@
             // 页面点击
             pageTap() {
                 this.$refs.picswiper.timerStart()
-            },
-            // 将城市名转换为接口有效参数
-            translateCities (cityName) {
-                switch (cityName) {
-                    case '青岛':
-                        return '青岛'
-                    case '烟台':
-                        return '烟台'
-                    case '潍坊':
-                        return '潍坊'
-                    case '威海':
-                        return '荣成'
-                    case '滨州':
-                        return '滨州'
-                    default:
-                        return '青岛'
-                }
             }
         },
         onLoad() {
-            let that = this
-            switch (this.cityName) {
-                case '青岛':
-                    that.cityIndex = 0
-                    break
-                case '烟台':
-                    that.cityIndex = 1
-                    break
-                case '潍坊':
-                    that.cityIndex = 2
-                    break
-                case '威海':
-                    that.cityIndex = 3
-                    break
-                case '滨州':
-                    that.cityIndex = 4
-                    break
-                default:
-                    that.cityIndex = 0
-                    break
-            }
-            this.data_source = this.translateCities(this.cityName)
-            this.requestImage(this.data_source)
+            this.requestImage()
         },
         onPullDownRefresh() {
 			console.log('[界面]: 雷达图 下拉刷新')
-            this.requestImage(this.data_source)
+            this.requestImage()
             uni.stopPullDownRefresh()
 		},
     }
 </script>
 
 <style scoped>
-    @import "../../common/FontAwesome.css";
     @import "../../common/generic.css";
 
     Page {

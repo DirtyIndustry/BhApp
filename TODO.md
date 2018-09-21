@@ -46,4 +46,6 @@ DONE... change icon
 DONE... change splash screen  
 DONE... change bienvenu page button and text color  
 DONE... clean up index page  
+DONE... radar image page delete sources  
+picSwiper button styling  
 manifest  

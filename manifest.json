@@ -83,7 +83,8 @@
         },
         "splashscreen" : {
             "autoclose" : true,
-            "delay" : 5000
+            "delay" : 5000,
+            "waiting" : false
         }
     },
     /* SDK配置 */

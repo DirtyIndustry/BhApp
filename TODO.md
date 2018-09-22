@@ -51,4 +51,5 @@ DONE... picSwiper button styling
 DONE... picSwiper clean timer  
 DONE... change fishery map hide markers zooming level  
 DONE... change webservices  
+DONE... map page check zooming level when switch map  
 manifest  

@@ -163,10 +163,10 @@
 			requestData(city) {
 				// 任务计数器归零
 				this.completedRequestCount = 0
-				this.loadShandongData(city)
+				this.loadBeihaiData(city)
 			},
 			// 读取北海预报数据 包括天气 潮汐 近海 浴场 精细化 五日 威海专项
-			loadShandongData (cityname) {
+			loadBeihaiData (cityname) {
 				let that = this
 				uni.request({
 					url: appsettings.hosturl + 'GetBeihaiData',

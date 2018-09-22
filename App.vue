@@ -203,10 +203,10 @@
 				this.cityName = city
 				utils.storeToLocal('cityname', city)
 				// 根据城市向服务器申请数据
-				this.loadShandongData(city)
+				this.loadBeihaiData(city)
 			},
 			// 读取北海预报数据 包括天气 潮汐 近海 浴场 精细化 五日 威海专项
-			loadShandongData (cityname) {
+			loadBeihaiData (cityname) {
 				let that = this
 				uni.request({
 					url: appsettings.hosturl + 'GetBeihaiData',

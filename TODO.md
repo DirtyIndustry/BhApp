@@ -54,4 +54,5 @@ DONE... change webservices
 DONE... map page check zooming level when switch map  
 DONE... update flow tabbar  
 DONE... update myPicker with hover-class  
+DONE... add typhoon map with hardware acceleration  
 manifest  

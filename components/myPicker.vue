@@ -6,7 +6,7 @@
         <view class="layer buttonlayer speed-up" v-show="panelshow" :style="{top: paneltop, opacity: panelopacity}" @tap="closeDialog">
             <!-- 选项按钮组 -->
             <view class="choose_box">
-                <view class="chooseItem" v-for="(item, index) in items" :key="index" @tap="itemTap(index, item)">{{item}}</view>
+                <view class="chooseItem" hover-class="hover" v-for="(item, index) in items" :key="index" @tap="itemTap(index, item)">{{item}}</view>
             </view>
             <!-- 取消按钮 -->
             <view class="cancel">取消</view>
@@ -127,6 +127,10 @@
         color: #007eff;
         font-size: 32rpx;
         border-bottom: #d8d8d8 2rpx solid;
+    }
+
+    .hover {
+        background-color: rgba(221, 221, 221, 0.8);
     }
 
     .chooseItem:last-child {

@@ -508,7 +508,7 @@ const switchCity = function (city, operate) {
                         // 判断是否在列表中
                         let contains = false
                         switch (autocity) {
-                            case '青岛': 
+                            case '青岛':
                             case '烟台':
                             case '潍坊':
                             case '威海':

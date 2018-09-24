@@ -200,7 +200,7 @@ export default {
     flex-direction: row;
     left: 0;
     z-index: 4;
-    box-shadow: 0upx 2upx 10upx rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2upx 10upx rgba(0, 0, 0, 0.4);
 }
 
 /* 按钮组中的按钮 */

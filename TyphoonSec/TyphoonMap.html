@@ -525,7 +525,7 @@
                         let parser = new DOMParser()
                         let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
                         // console.log(JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML))
-                        console.log(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        // console.log(xmldoc.getElementsByTagName('string')[0].innerHTML)
                     } else if (xmlhttp.status === 400) {
                         console.log('error 400')
                         alert('There was an error 400')

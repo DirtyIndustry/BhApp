@@ -85,7 +85,7 @@
     .list-body {
         border-radius: 15upx;
         background-color: rgba(250, 250, 250, 0.8);
-        box-shadow: 0upx 0upx 20upx rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 20upx rgba(0, 0, 0, 0.5);
     }
 
     /* 列表行 */

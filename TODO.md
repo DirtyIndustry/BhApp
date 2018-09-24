@@ -55,4 +55,13 @@ DONE... map page check zooming level when switch map
 DONE... update flow tabbar  
 DONE... update myPicker with hover-class  
 DONE... add typhoon map with hardware acceleration  
+DONE... add tideChart  
+DONE... add refinedChart  
+DONE... add weihaiSPChart  
+DONE... add fivedayForecast  
+DONE... add weixinCityPicker  
+DONE... update utils with getBeihaiData  
+DONE... update App.vue  
+DONE... update cityforecast page  
+DONE... update weatherforecast page  
 manifest  

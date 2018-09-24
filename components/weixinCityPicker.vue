@@ -3,7 +3,7 @@
         <!-- #ifdef MP-WEIXIN -->
         <view class="weixinCityBanner">
             <!-- 布局右侧宽度固定，左侧自适应 -->
-            <view class="bannerColumnLeft text-large text-bold text-blue">
+            <view class="bannerColumnLeft text-large text-bold text-green">
                 &nbsp;&nbsp;{{cityName}}市
             </view>
             <view class="bannerColumnRight">
@@ -17,7 +17,7 @@
         <view style="height: 100upx;" />
         <!-- #endif -->
         <!-- #ifdef APP-PLUS -->
-        <view class="page-section header text-large text-bold text-blue">{{cityName}}市</view>
+        <view class="page-section header text-large text-bold text-green">{{cityName}}市</view>
         <view style="height: 20upx;" />
         <!-- #endif -->
     </view>

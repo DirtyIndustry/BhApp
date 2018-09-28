@@ -1442,7 +1442,7 @@
 
         // 向服务器请求海区数据
         const loadOceanInfo = function () {
-            let url = hosturl + 'GetSeaAreaforecastWX_0912'
+            let url = hosturl + 'GetSeaAreaData'
             let data = 'name=admin&areaflg=北海'
             let xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
@@ -1532,10 +1532,83 @@
             xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
             xmlhttp.send(data)
         } // end-loadQD()
+        const loadSDSevenCity = function () {
+            let url = hosturl + 'GetSDSevenCityData'
+            let data = 'name=admin&areaflg=北海'
+            let xmlhttp = new XMLHttpRequest()
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
+                    if (xmlhttp.status === 200) {
+                        // console.log(xmlhttp.responseText)
+                        let parser = new DOMParser()
+                        let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
+                        let res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        // console.log(res)
+                        let date = new Date()
+                        let todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
+                        date.setDate(date.getDate() + 1)
+                        let tomorrowstring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
+                        for (let i = 0; i < res.length; i++) {
+                            res[i].date = todaystring + '~' + tomorrowstring
+                            switch (ress[i].FORECASTAREA) {
+                                case '日照近海':
+                                    setCityInfo(res[i], infoCityRZ)
+                                    break
+                                case '青岛近海':
+                                    setCityInfo(res[i], infoCityQD)
+                                    break
+                                case '威海近海':
+                                    setCityInfo(res[i], infoCityWH)
+                                    break
+                                case '烟台近海':
+                                    setCityInfo(res[i], infoCityYT)
+                                    break
+                                case '潍坊近海':
+                                    setCityInfo(res[i], infoCityWF)
+                                    break
+                                case '东营近海':
+                                    setCityInfo(res[i], infoCityDY)
+                                    break
+                                case '滨州近海':
+                                    setCityInfo(res[i], infoCityBZ)
+                                    break
+                                default:
+                                    break
+                            }
+                        }
+                        // console.log(output)
+                    } else if (xmlhttp.status === 400) {
+                        console.log('error 400')
+                        alert('There was an error 400')
+                    } else {
+                        console.log('something else other than 200 was returned')
+                        console.log(xmlhttp.responseText)
+                    }
+                }
+            } // end-xmlhttp.onreadystatechange()
+            xmlhttp.open('POST', url, true)
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            xmlhttp.send(data)
+        } // end-loadSDSevenCity()
+        // 将服务器数据存入变量
+        const setCityInfo = function (source, target) {
+            target.location = source.FORECASTAREA
+            target.date = source.date
+            target.firsthightime = source.FIRSTHIGHTIME
+            target.firstlowtime = source.FIRSTLOWTIME
+            target.secondhightime = source.SECONDHIGHTIME
+            target.secondlowtime = source.SECONDLOWTIME
+            target.firsthigh = source.FIRSTHIGH
+            target.secondhigh = source.SECONDHIGH
+            target.firstlow = source.FIRSTLOW
+            target.secondlow = source.SECONDLOW
+            target.waveheight = source.WAVEHEIGHT
+            target.temperature = source.TEMPERATURE
+        }
 
         // 向服务器请求渔场信息
         const loadFisheryInfo = function () {
-            let url = hosturl + 'GetFisheriesForecast_0831'
+            let url = hosturl + 'GetFisheryData'
             let data = 'name=admin&areaflg=北海'
             let xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {

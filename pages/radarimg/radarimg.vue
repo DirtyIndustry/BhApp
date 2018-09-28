@@ -31,7 +31,7 @@
             requestImage() {
                 let that = this
                 uni.request({
-                    url: appsettings.hosturl + 'GetRadarImages_0905',
+                    url: appsettings.hosturl + 'GetRadarImages',
                     data: { name: 'admin', areaflg: '北海', cityname: '' },
                     method: 'POST',
                     success: function (res) {

@@ -9,17 +9,18 @@
             <!-- 信息面板 -->
             <view class="infopanel">
                 <view class="infopanel-day" v-for="(item, index) in data" :key="index">
-                    <view class="infocolumn infocolumn-left text-mini">浪高：{{item.wave}}米\n风力：{{item.windLvl}}级</view>
-                    <view class="infocolumn text-mini">水温：{{item.temp}}℃\n风向：{{item.windDir}}</view>
+                    <view class="infocolumn-left" />
+                    <view class="infocolumn infocolumn-left text-xs">浪高：{{item.wave}}米\n风力：{{item.windLvl}}级</view>
+                    <view class="infocolumn text-xs">水温：{{item.temp}}℃\n风向：{{item.windDir}}</view>
                 </view>
             </view>
         </scroll-view>
         <!-- 日期球 -->
         <view class="speed-up balltrack-fix">
-            <view class="dateball text-mini" :class="{'dateball-active': ballStatus.fstballActive}">{{fstballText}}</view>
-            <view class="speed-up dateball text-mini" :class="{'dateball-active': ballStatus.sndballActive}"
+            <view class="dateball text-xxxs text-white" :class="{'dateball-active': ballStatus.fstballActive}">{{fstballText}}</view>
+            <view class="speed-up dateball text-xxxs text-white" :class="{'dateball-active': ballStatus.sndballActive}"
                 :style="{left: ballStatus.sndballLeft + 'px'}">{{sndballText}}</view>
-            <view class="speed-up dateball text-mini" :class="{'dateball-active': ballStatus.trdballActive}"
+            <view class="speed-up dateball text-xxxs text-white" :class="{'dateball-active': ballStatus.trdballActive}"
                 :style="{left: ballStatus.trdballLeft + 'px'}">{{trdballText}}</view>
         </view>
         <!-- 左右指示箭头 -->
@@ -161,10 +162,10 @@
             setDateballLeft() {
                 this.trackwidth = this.systemInfo.windowWidth * 90 / 100
                 this.scrollwidth = Math.round(this.trackwidth * 190 / 100) + 1
-                this.ballStatus.sndballLeft = this.trackwidth - 57
-                this.ballStatus.trdballLeft = this.trackwidth - 28
-                this.sndRightPos = this.trackwidth - 57
-                this.trdRightPos = this.trackwidth - 28
+                this.ballStatus.sndballLeft = this.trackwidth - 51
+                this.ballStatus.trdballLeft = this.trackwidth - 25
+                this.sndRightPos = this.trackwidth - 51
+                this.trdRightPos = this.trackwidth - 25
                 this.stageOne = this.trackwidth - 29
                 this.stageTwo = this.scrollwidth - 58
             },
@@ -174,7 +175,7 @@
                 if (scrollLeft < 57) {
                     this.ballStatus.sndballLeft = this.sndRightPos
                 } else if (scrollLeft > this.stageOne) {
-                    this.ballStatus.sndballLeft = 29
+                    this.ballStatus.sndballLeft = 26
                 } else {
                     this.ballStatus.sndballLeft = this.trackwidth - scrollLeft
                 }
@@ -182,7 +183,7 @@
                 if (scrollLeft < this.trackwidth) {
                     this.ballStatus.trdballLeft = this.trdRightPos
                 } else if (scrollLeft > this.stageTwo) {
-                    this.ballStatus.trdballLeft = 58
+                    this.ballStatus.trdballLeft = 52
                 } else {
                     this.ballStatus.trdballLeft = this.scrollwidth - scrollLeft
                 }
@@ -246,7 +247,7 @@
 	/* 曲线图的容器 必须设置宽度和高度 */
     .chart {
         width: 290%;
-        height: 250upx;
+        height: 200upx;
     }
 
     /* 图表上方的地名 */
@@ -260,12 +261,12 @@
     /* 日期球的外观样式 */
     .dateball {
         display: flex;
-        width: 62upx;
-        height: 62upx;
+        width: 50upx;
+        height: 50upx;
         position: absolute;
         bottom: 11upx;
         background-color: rgba(148, 148, 148, 0.8);
-        border-radius: 62upx;
+        border-radius: 50%;
         align-items: center;
         justify-content: center;
     }
@@ -305,20 +306,21 @@
 
     /* 信息面板的列 */
     .infocolumn {
-        flex: 1;
+        flex: 2;
         padding: 10upx;
         white-space: pre-wrap;
     }
 
     /* 左边的列 文字水平靠右 */
     .infocolumn-left {
-        text-align: right;
+        /* text-align: right; */
+        flex: 1;
     }
 
     /* 曲线上左右箭头 */
 	.chevron {
 		position: absolute;
-		bottom: 205upx;
+		bottom: 180upx;
 		color: #666;
 	}
 	.chevron-right {

@@ -505,19 +505,19 @@
     </div>
 
     <script>
-        let map // 地图实体
-        let mapdragging = false // 当前是否在拖动/缩放地图
-        let currentmap = '城市' // 当前所选地图 海区/城市/渔场
-        // let hosturl = 'http://123.234.129.238:8001/MyWebService.asmx/'
-        let hosturl = 'http://123.234.129.237:8001/MyWebService.asmx/'
+        var map // 地图实体
+        var mapdragging = false // 当前是否在拖动/缩放地图
+        var currentmap = '城市' // 当前所选地图 海区/城市/渔场
+        // var hosturl = 'http://123.234.129.238:8001/MyWebService.asmx/'
+        var hosturl = 'http://123.234.129.237:8001/MyWebService.asmx/'
 
         // 海区地图中的marker
-        let markerOceanBH,          // 渤海
+        var markerOceanBH,          // 渤海
             markerOceanHHnorth,     // 黄海北部
             markerOceanHHmid        // 黄海中部
 
         // 城市地图中的marker
-        let markerCityQD,   // 青岛
+        var markerCityQD,   // 青岛
             markerCityRZ,   // 日照
             markerCityYT,   // 烟台
             markerCityWH,   // 威海
@@ -526,7 +526,7 @@
             markerCityBZ    // 滨州
 
         // 渔场地图中的marker
-        let markerFishBHWan,    // 渤海湾
+        var markerFishBHWan,    // 渤海湾
             markerFishLZWan,    // 莱州湾
             markerFishYW,       // 烟威
             markerFishWD,       // 威东
@@ -539,7 +539,7 @@
             markerFishHDong     // 海东
 
         // 渔场地图中的多边形
-        let polygonBHWan,   // 渤海湾
+        var polygonBHWan,   // 渤海湾
             polygonLZWan,   // 莱州湾
             polygonYW,      // 烟威
             polygonWD,      // 威东
@@ -552,31 +552,31 @@
             polygonHDong    // 海东
 
         // 海区信息面板数据
-        let infoOceanBH = {}        // 渤海
-        let infoOceanHHnorth = {}   // 黄海北部
-        let infoOceanHHmid = {}     // 黄海中部
+        var infoOceanBH = {}        // 渤海
+        var infoOceanHHnorth = {}   // 黄海北部
+        var infoOceanHHmid = {}     // 黄海中部
 
         // 城市信息面板数据
-        let infoCityQD = {}
-        let infoCityRZ = {}
-        let infoCityYT = {}
-        let infoCityWH = {}
-        let infoCityWF = {}
-        let infoCityDY = {}
-        let infoCityBZ = {}
+        var infoCityQD = {}
+        var infoCityRZ = {}
+        var infoCityYT = {}
+        var infoCityWH = {}
+        var infoCityWF = {}
+        var infoCityDY = {}
+        var infoCityBZ = {}
 
         // 渔场信息面板数据
-        let infoFisheryBHWan = {}
-        let infoFisheryLZWan = {}
-        let infoFisheryYW = {}
-        let infoFisheryWD = {}
-        let infoFisherySDong = {}
-        let infoFisherySDao = {}
-        let infoFisheryQHai = {}
-        let infoFisheryLHK = {}
-        let infoFisheryLD = {}
-        let infoFisheryHY = {}
-        let infoFisheryHDong = {}
+        var infoFisheryBHWan = {}
+        var infoFisheryLZWan = {}
+        var infoFisheryYW = {}
+        var infoFisheryWD = {}
+        var infoFisherySDong = {}
+        var infoFisherySDao = {}
+        var infoFisheryQHai = {}
+        var infoFisheryLHK = {}
+        var infoFisheryLD = {}
+        var infoFisheryHY = {}
+        var infoFisheryHDong = {}
 
         window.onload = function () {
             //直接加载地图
@@ -593,7 +593,7 @@
 
                 // 
                 /*
-                let anchor = new qq.maps.Point(0, 39),
+                var anchor = new qq.maps.Point(0, 39),
                     size = new qq.maps.Size(90, 115),
                     scaleSize = new qq.maps.Size(50, 62),
                     origin = new qq.maps.Point(0, 0), */
@@ -601,7 +601,7 @@
                 // 海区Marker
                 {
                     // 渤海海区图标
-                    let iconOceanBH = new qq.maps.MarkerImage(
+                    var iconOceanBH = new qq.maps.MarkerImage(
                         './Images/bh_location.png',
                         new qq.maps.Size(94, 92),   // size
                         new qq.maps.Point(0, 0),    // origin
@@ -618,7 +618,7 @@
                     markerOceanBH.setIcon(iconOceanBH)
 
                     // 黄海北部海区图标
-                    let iconOceanHHnorth = new qq.maps.MarkerImage(
+                    var iconOceanHHnorth = new qq.maps.MarkerImage(
                         './Images/hbei_location.png',
                         new qq.maps.Size(137, 92),   // size
                         new qq.maps.Point(0, 0),    // origin
@@ -635,7 +635,7 @@
                     markerOceanHHnorth.setIcon(iconOceanHHnorth)
 
                     // 黄海中部海区图标
-                    let iconOceanHHmid = new qq.maps.MarkerImage(
+                    var iconOceanHHmid = new qq.maps.MarkerImage(
                         './Images/hzhong_location.png',
                         new qq.maps.Size(137, 92),   // size
                         new qq.maps.Point(0, 0),    // origin
@@ -655,7 +655,7 @@
                 // 城市Marker
                 {
                     // 青岛城市图标
-                    let iconCityQD = new qq.maps.MarkerImage(
+                    var iconCityQD = new qq.maps.MarkerImage(
                         './Images/Qd_location.png',
                         new qq.maps.Size(49, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -672,7 +672,7 @@
                     markerCityQD.setIcon(iconCityQD)
 
                     // 日照城市图标
-                    let iconCityRZ = new qq.maps.MarkerImage(
+                    var iconCityRZ = new qq.maps.MarkerImage(
                         './Images/Rz_location.png',
                         new qq.maps.Size(50, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -689,7 +689,7 @@
                     markerCityRZ.setIcon(iconCityRZ)
 
                     // 烟台城市图标
-                    let iconCityYT = new qq.maps.MarkerImage(
+                    var iconCityYT = new qq.maps.MarkerImage(
                         './Images/Yt_location.png',
                         new qq.maps.Size(50, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -706,7 +706,7 @@
                     markerCityYT.setIcon(iconCityYT)
 
                     // 威海城市图标
-                    let iconCityWH = new qq.maps.MarkerImage(
+                    var iconCityWH = new qq.maps.MarkerImage(
                         './Images/Wh_location.png',
                         new qq.maps.Size(50, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -723,7 +723,7 @@
                     markerCityWH.setIcon(iconCityWH)
 
                     // 潍坊城市图标
-                    let iconCityWF = new qq.maps.MarkerImage(
+                    var iconCityWF = new qq.maps.MarkerImage(
                         './Images/Wf_location.png',
                         new qq.maps.Size(50, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -740,7 +740,7 @@
                     markerCityWF.setIcon(iconCityWF)
 
                     // 东营城市图标
-                    let iconCityDY = new qq.maps.MarkerImage(
+                    var iconCityDY = new qq.maps.MarkerImage(
                         './Images/Dy_location.png',
                         new qq.maps.Size(50, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -757,7 +757,7 @@
                     markerCityDY.setIcon(iconCityDY)
 
                     // 滨州城市图标
-                    let iconCityBZ = new qq.maps.MarkerImage(
+                    var iconCityBZ = new qq.maps.MarkerImage(
                         './Images/Bz_location.png',
                         new qq.maps.Size(50, 62),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -777,7 +777,7 @@
                 // 渔场Marker
                 {
                     // 渤海湾渔场图标
-                    let iconFishBHWan = new qq.maps.MarkerImage(
+                    var iconFishBHWan = new qq.maps.MarkerImage(
                         './Images/bhwan_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -794,7 +794,7 @@
                     markerFishBHWan.setIcon(iconFishBHWan)
 
                     // 莱州湾渔场图标
-                    let iconFishLZWan = new qq.maps.MarkerImage(
+                    var iconFishLZWan = new qq.maps.MarkerImage(
                         './Images/lz_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -811,7 +811,7 @@
                     markerFishLZWan.setIcon(iconFishLZWan)
 
                     // 烟威渔场图标
-                    let iconFishYW = new qq.maps.MarkerImage(
+                    var iconFishYW = new qq.maps.MarkerImage(
                         './Images/yw_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -828,7 +828,7 @@
                     markerFishYW.setIcon(iconFishYW)
 
                     // 威东渔场图标
-                    let iconFishWD = new qq.maps.MarkerImage(
+                    var iconFishWD = new qq.maps.MarkerImage(
                         './Images/wd_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -845,7 +845,7 @@
                     markerFishWD.setIcon(iconFishWD)
 
                     // 石岛渔场图标
-                    let iconFishSDao = new qq.maps.MarkerImage(
+                    var iconFishSDao = new qq.maps.MarkerImage(
                         './Images/sdao_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -862,7 +862,7 @@
                     markerFishSDao.setIcon(iconFishSDao)
 
                     // 石东渔场图标
-                    let iconFishSDong = new qq.maps.MarkerImage(
+                    var iconFishSDong = new qq.maps.MarkerImage(
                         './Images/sdong_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -879,7 +879,7 @@
                     markerFishSDong.setIcon(iconFishSDong)
 
                     // 青海渔场图标
-                    let iconFishQHai = new qq.maps.MarkerImage(
+                    var iconFishQHai = new qq.maps.MarkerImage(
                         './Images/qhai_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -896,7 +896,7 @@
                     markerFishQHai.setIcon(iconFishQHai)
 
                     // 滦河口渔场图标
-                    let iconFishLHK = new qq.maps.MarkerImage(
+                    var iconFishLHK = new qq.maps.MarkerImage(
                         './Images/lhk_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -913,7 +913,7 @@
                     markerFishLHK.setIcon(iconFishLHK)
 
                     // 辽东湾渔场图标
-                    let iconFishLD = new qq.maps.MarkerImage(
+                    var iconFishLD = new qq.maps.MarkerImage(
                         './Images/ld_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -930,7 +930,7 @@
                     markerFishLD.setIcon(iconFishLD)
 
                     // 海洋岛渔场图标
-                    let iconFishHY = new qq.maps.MarkerImage(
+                    var iconFishHY = new qq.maps.MarkerImage(
                         './Images/hy_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -947,7 +947,7 @@
                     markerFishHY.setIcon(iconFishHY)
 
                     // 海东渔场图标
-                    let iconFishHDong = new qq.maps.MarkerImage(
+                    var iconFishHDong = new qq.maps.MarkerImage(
                         './Images/hdong_location.png',
                         new qq.maps.Size(80, 52),  // size
                         new qq.maps.Point(0, 0),    // origin
@@ -967,7 +967,7 @@
                 // 渔场多边形
                 {
                     // 渤海湾渔场多边形
-                    let pathBHWan = [
+                    var pathBHWan = [
                         new qq.maps.LatLng(38.0016803226888, 117.5513364203396),
                         new qq.maps.LatLng(39.23219428943497, 117.5497830177721),
                         new qq.maps.LatLng(39.22612651053009, 119.0077355479573),
@@ -984,7 +984,7 @@
                     })
 
                     // 莱州湾渔场多边形
-                    let pathLZWan = [
+                    var pathLZWan = [
                         new qq.maps.LatLng(38.00012612512063, 121.0001234114663),
                         new qq.maps.LatLng(37.5001259966175, 121.0001233665002),
                         new qq.maps.LatLng(37.50012603798632, 120.5001233845866),
@@ -1008,7 +1008,7 @@
                     })
 
                     // 烟威渔场多边形
-                    let pathYW = [
+                    var pathYW = [
                         new qq.maps.LatLng(38.00012587690776, 124.0001233038474),
                         new qq.maps.LatLng(37.50012574840463, 124.0001232597807),
                         new qq.maps.LatLng(37.50012578977345, 123.500123277867),
@@ -1035,7 +1035,7 @@
                     })
 
                     // 威东渔场多边形
-                    let pathWD = [
+                    var pathWD = [
                         new qq.maps.LatLng(37.50012574840463, 124.0001232597807),
                         new qq.maps.LatLng(38.00012587690776, 124.0001233038474),
                         new qq.maps.LatLng(38.00012583553894, 124.5001232857611),
@@ -1050,7 +1050,7 @@
                     })
 
                     // 石东渔场多边形
-                    let pathSDong = [
+                    var pathSDong = [
                         new qq.maps.LatLng(36.50012540866072, 125.0001231354744),
                         new qq.maps.LatLng(36.00012527925827, 125.0001230914077),
                         new qq.maps.LatLng(36.00012532062709, 124.500123109494),
@@ -1071,7 +1071,7 @@
                     })
 
                     // 石岛渔场多边形
-                    let pathSDao = [
+                    var pathSDao = [
                         new qq.maps.LatLng(37.50012574840463, 124.0001232597807),
                         new qq.maps.LatLng(37.0001256199015, 124.0001232157139),
                         new qq.maps.LatLng(36.50012549139836, 124.0001231716471),
@@ -1096,7 +1096,7 @@
                     })
 
                     // 青海渔场多边形
-                    let pathQHai = [
+                    var pathQHai = [
                         new qq.maps.LatLng(37.00012578537672, 122.00012328716),
                         new qq.maps.LatLng(36.50012565597427, 122.0001232430933),
                         new qq.maps.LatLng(36.00012552747114, 122.0001231981272),
@@ -1123,7 +1123,7 @@
                     })
 
                     // 滦河口渔场多边形
-                    let pathLHK = [
+                    var pathLHK = [
                         new qq.maps.LatLng(39.00012646576386, 120.0001235348733),
                         new qq.maps.LatLng(38.5001263363614, 120.0001234908066),
                         new qq.maps.LatLng(38.50012637773023, 119.5001235088929),
@@ -1144,7 +1144,7 @@
                     })
 
                     // 辽东湾渔场多边形
-                    let pathLD = [
+                    var pathLD = [
                         new qq.maps.LatLng(41.00067049674607, 122.3090447627058),
                         new qq.maps.LatLng(39.99878462041397, 122.3090447627058),
                         new qq.maps.LatLng(40.00012655729483, 122.0001235524601),
@@ -1172,7 +1172,7 @@
                     })
 
                     // 海洋岛渔场多边形
-                    let pathHY = [
+                    var pathHY = [
                         new qq.maps.LatLng(39.9214189152508, 123.9917488403368),
                         new qq.maps.LatLng(39.50012626331647, 124.0001234369471),
                         new qq.maps.LatLng(39.00012613481334, 124.000123391981),
@@ -1197,7 +1197,7 @@
                     })
 
                     // 海东渔场多边形
-                    let pathHDong = [
+                    var pathHDong = [
                         new qq.maps.LatLng(39.50012622194765, 124.5115240911639),
                         new qq.maps.LatLng(39.00012609344452, 124.5115240470972),
                         new qq.maps.LatLng(39.00012613481334, 124.0115240651835),
@@ -1226,7 +1226,7 @@
                         mapdragging = true
                     })
                     qq.maps.event.addListener(map, 'dragend', function () {
-                        let timer = setTimeout(function () {
+                        var timer = setTimeout(function () {
                             clearTimeout(timer)
                             mapdragging = false
                         }, 50)
@@ -1417,14 +1417,14 @@
         } // end-window.onload()
 
         // 向服务器请求数据
-        const requestData = function (url, data) {
-            let xmlhttp = new XMLHttpRequest()
+        var requestData = function (url, data) {
+            var xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
                     if (xmlhttp.status === 200) {
                         // console.log(xmlhttp.responseText)
-                        let parser = new DOMParser()
-                        let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
+                        var parser = new DOMParser()
+                        var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
                         console.log(JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML))
                     } else if (xmlhttp.status === 400) {
                         console.log('error 400')
@@ -1441,23 +1441,23 @@
         } // end-requestData()
 
         // 向服务器请求海区数据
-        const loadOceanInfo = function () {
-            let url = hosturl + 'GetSeaAreaData'
-            let data = 'name=admin&areaflg=北海'
-            let xmlhttp = new XMLHttpRequest()
+        var loadOceanInfo = function () {
+            var url = hosturl + 'GetSeaAreaData'
+            var data = 'name=admin&areaflg=北海'
+            var xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
                     if (xmlhttp.status === 200) {
-                        let parser = new DOMParser()
+                        var parser = new DOMParser()
                         // console.log(xmlhttp.responseText)
-                        let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
-                        let res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
-                        let date = new Date()
-                        let today = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
+                        var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
+                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var date = new Date()
+                        var today = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
                         date.setDate(date.getDate() + 3)
-                        let threedays = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
-                        let datestring = today + '~' + threedays
-                        for (let i = 0; i < res.length; i++) {
+                        var threedays = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
+                        var datestring = today + '~' + threedays
+                        for (var i = 0; i < res.length; i++) {
                             res[i].publishdate = datestring
                             switch (res[i].seaname) {
                                 case '渤海':
@@ -1488,22 +1488,22 @@
         } // end-loadOceanInfo()
 
         // 向服务器请求城市信息
-        const loadCityInfo = function (city, output) {
-            let url = hosturl + 'GetSDSevenCity_0831'
-            let data = 'name=admin&areaflg=北海&city=' + city
-            let xmlhttp = new XMLHttpRequest()
+        var loadCityInfo = function (city, output) {
+            var url = hosturl + 'GetSDSevenCity_0831'
+            var data = 'name=admin&areaflg=北海&city=' + city
+            var xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
                     if (xmlhttp.status === 200) {
                         // console.log(xmlhttp.responseText)
-                        let parser = new DOMParser()
-                        let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
-                        let res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var parser = new DOMParser()
+                        var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
+                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
                         // console.log(res)
-                        let date = new Date()
-                        let todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
+                        var date = new Date()
+                        var todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
                         date.setDate(date.getDate() + 1)
-                        let tomorrowstring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
+                        var tomorrowstring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
                         
                         output.location = res.FORECASTAREA
                         output.date = todaystring + '~' + tomorrowstring
@@ -1532,23 +1532,23 @@
             xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
             xmlhttp.send(data)
         } // end-loadQD()
-        const loadSDSevenCity = function () {
-            let url = hosturl + 'GetSDSevenCityData'
-            let data = 'name=admin&areaflg=北海'
-            let xmlhttp = new XMLHttpRequest()
+        var loadSDSevenCity = function () {
+            var url = hosturl + 'GetSDSevenCityData'
+            var data = 'name=admin&areaflg=北海'
+            var xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
                     if (xmlhttp.status === 200) {
                         // console.log(xmlhttp.responseText)
-                        let parser = new DOMParser()
-                        let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
-                        let res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var parser = new DOMParser()
+                        var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
+                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
                         // console.log(res)
-                        let date = new Date()
-                        let todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
+                        var date = new Date()
+                        var todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
                         date.setDate(date.getDate() + 1)
-                        let tomorrowstring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
-                        for (let i = 0; i < res.length; i++) {
+                        var tomorrowstring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
+                        for (var i = 0; i < res.length; i++) {
                             res[i].date = todaystring + '~' + tomorrowstring
                             switch (ress[i].FORECASTAREA) {
                                 case '日照近海':
@@ -1591,7 +1591,7 @@
             xmlhttp.send(data)
         } // end-loadSDSevenCity()
         // 将服务器数据存入变量
-        const setCityInfo = function (source, target) {
+        var setCityInfo = function (source, target) {
             target.location = source.FORECASTAREA
             target.date = source.date
             target.firsthightime = source.FIRSTHIGHTIME
@@ -1607,19 +1607,19 @@
         }
 
         // 向服务器请求渔场信息
-        const loadFisheryInfo = function () {
-            let url = hosturl + 'GetFisheryData'
-            let data = 'name=admin&areaflg=北海'
-            let xmlhttp = new XMLHttpRequest()
+        var loadFisheryInfo = function () {
+            var url = hosturl + 'GetFisheryData'
+            var data = 'name=admin&areaflg=北海'
+            var xmlhttp = new XMLHttpRequest()
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE === 4
                     if (xmlhttp.status === 200) {
                         // console.log(xmlhttp.responseText)
-                        let parser = new DOMParser()
-                        let xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
+                        var parser = new DOMParser()
+                        var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
                         // console.log(JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML))
-                        let res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
-                        for (let i = 0; i < res.length; i++) {
+                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        for (var i = 0; i < res.length; i++) {
                             switch (res[i].FORECASTAREA) {
                                 case '渤海湾渔场':
                                     setFisheryData(res[i], infoFisheryBHWan)
@@ -1658,10 +1658,10 @@
                                     break
                             } // end-switch
                         } // end-for
-                        let date = new Date()
-                        let today = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
+                        var date = new Date()
+                        var today = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
                         date.setDate(date.getDate() + 3)
-                        let threedays = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
+                        var threedays = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
                         infoFisheryBHWan.date = today + '~' + threedays
                         infoFisheryLZWan.date = today + '~' + threedays
                         infoFisheryYW.date = today + '~' + threedays
@@ -1687,7 +1687,7 @@
             xmlhttp.send(data)
         } // end-loadFisheryInfo()
         
-        const setFisheryData = function (source, target) {
+        var setFisheryData = function (source, target) {
             target.location = source.FORECASTAREA
             target.WAVELVL = source.WAVELVL
             target.WAVEDIR = source.WAVEDIR
@@ -1698,12 +1698,12 @@
         }
 
         // 将####格式时间转为##:##格式
-        const timeFormat = function (time) {
+        var timeFormat = function (time) {
             return time.substring(0, 2) + ':' + time.substring(2)
         }
 
         // 顶部海区按钮点击
-        const Ocean = function () {
+        var Ocean = function () {
             console.log('Ocean clicked!')
             currentmap = '海区'
             // 改变按钮颜色
@@ -1753,7 +1753,7 @@
             zoomingMap()
         }
         // 顶部城市按钮点击
-        const City = function () {
+        var City = function () {
             console.log('City clicked!')
             currentmap = '城市'
             // 改变按钮颜色
@@ -1803,7 +1803,7 @@
             zoomingMap()
         }
         // 顶部渔场按钮点击
-        const Fishery = function () {
+        var Fishery = function () {
             console.log('fishery clicked!')
             currentmap = '渔场'
             // 改变按钮颜色
@@ -1853,33 +1853,33 @@
             zoomingMap()
         }
         
-        const selectOcean = function () {
-            let divocean = document.getElementById('ocean')
+        var selectOcean = function () {
+            var divocean = document.getElementById('ocean')
             divocean.className = 'ocean selected'
-            let divcity = document.getElementById('city')
+            var divcity = document.getElementById('city')
             divcity.className = 'city'
-            let divfishery = document.getElementById('fishery')
+            var divfishery = document.getElementById('fishery')
             divfishery.className = 'fishery'
         }
-        const selectCity = function () {
-            let divocean = document.getElementById('ocean')
+        var selectCity = function () {
+            var divocean = document.getElementById('ocean')
             divocean.className = 'ocean'
-            let divcity = document.getElementById('city')
+            var divcity = document.getElementById('city')
             divcity.className = 'city selected'
-            let divfishery = document.getElementById('fishery')
+            var divfishery = document.getElementById('fishery')
             divfishery.className = 'fishery'
         }
-        const selectFishery = function () {
-            let divocean = document.getElementById('ocean')
+        var selectFishery = function () {
+            var divocean = document.getElementById('ocean')
             divocean.className = 'ocean'
-            let divcity = document.getElementById('city')
+            var divcity = document.getElementById('city')
             divcity.className = 'city'
-            let divfishery = document.getElementById('fishery')
+            var divfishery = document.getElementById('fishery')
             divfishery.className = 'fishery selected'
         }
         
         // 缩放地图
-        const zoomingMap = function () {
+        var zoomingMap = function () {
             switch (currentmap) {
                 case '海区':
                     // 海区图缩放等级小于4则隐藏markers
@@ -1946,7 +1946,7 @@
         }
 
         // 切换普通-卫星地图
-        const switchMap = function () {
+        var switchMap = function () {
             console.log('switch button clicked!')
             if (map.getMapTypeId() === qq.maps.MapTypeId.ROADMAP) { // 如果是普通地图
                 map.setMapTypeId(qq.maps.MapTypeId.HYBRID)
@@ -1958,43 +1958,43 @@
         }
 
         // 显示海区信息面板
-        const oceanInfoPanelShow = function () {
-            let divarr = document.getElementsByClassName('oceaninfopanel')
+        var oceanInfoPanelShow = function () {
+            var divarr = document.getElementsByClassName('oceaninfopanel')
             divarr[0].style.display = 'flex'
         }
 
         // 关闭海区信息面板
-        const oceanInfoPanelHide = function () {
-            let divarr = document.getElementsByClassName('oceaninfopanel')
+        var oceanInfoPanelHide = function () {
+            var divarr = document.getElementsByClassName('oceaninfopanel')
             divarr[0].style.display = 'none'
         }
 
         // 显示城市信息面板
-        const cityInfoPanelShow = function () {
-            let divarr = document.getElementsByClassName('cityinfopanel')
+        var cityInfoPanelShow = function () {
+            var divarr = document.getElementsByClassName('cityinfopanel')
             divarr[0].style.display = 'flex'
         }
 
         // 关闭城市信息面板
-        const cityInfoPanelHide = function () {
-            let divarr = document.getElementsByClassName('cityinfopanel')
+        var cityInfoPanelHide = function () {
+            var divarr = document.getElementsByClassName('cityinfopanel')
             divarr[0].style.display = 'none'
         }
 
         // 显示渔场信息面板
-        const fisheryInfoPanelShow = function () {
-            let divarr = document.getElementsByClassName('fisheryinfopanel')
+        var fisheryInfoPanelShow = function () {
+            var divarr = document.getElementsByClassName('fisheryinfopanel')
             divarr[0].style.display = 'flex'
         }
 
         // 关闭渔场信息面板
-        const fisheryInfoPanelHide = function () {
-            let divarr = document.getElementsByClassName('fisheryinfopanel')
+        var fisheryInfoPanelHide = function () {
+            var divarr = document.getElementsByClassName('fisheryinfopanel')
             divarr[0].style.display = 'none'
         }
 
         // 填写海区信息面板
-        const setOceanInfoPanel = function (obj) {
+        var setOceanInfoPanel = function (obj) {
             document.getElementById('ocean_oceanname').innerHTML = obj.seaname
             document.getElementById('ocean_date').innerHTML = obj.publishdate
             document.getElementById('ocean_wavelvl').innerHTML = obj.waveheight24h
@@ -2009,7 +2009,7 @@
         }
 
         // 填写城市信息面板
-        const setCityInfoPanel = function (obj) {
+        var setCityInfoPanel = function (obj) {
             document.getElementById('city_cityname').innerHTML = obj.location
             document.getElementById('city_date').innerHTML = obj.date
             document.getElementById('city_fht').innerHTML = obj.firsthightime
@@ -2025,7 +2025,7 @@
         }
 
         // 填写渔场信息面板
-        const setFisheryInfoPanel = function (obj) {
+        var setFisheryInfoPanel = function (obj) {
             document.getElementById('fishery_fisheryname').innerHTML = obj.location
             document.getElementById('fishery_date').innerHTML = obj.date
             document.getElementById('fishery_wavelvl').innerHTML = obj.WAVELVL

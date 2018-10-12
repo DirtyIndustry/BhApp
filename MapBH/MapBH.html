@@ -1451,7 +1451,8 @@
                         var parser = new DOMParser()
                         // console.log(xmlhttp.responseText)
                         var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
-                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var jsonstring = xmldoc.getElementsByTagName('string')[0].childNodes[0].nodeValue
+                        var res = JSON.parse(jsonstring)
                         var date = new Date()
                         var today = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '10时'
                         date.setDate(date.getDate() + 3)
@@ -1498,7 +1499,8 @@
                         // console.log(xmlhttp.responseText)
                         var parser = new DOMParser()
                         var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
-                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var jsonstring = xmldoc.getElementsByTagName('string')[0].childNodes[0].nodeValue
+                        var res = JSON.parse(jsonstring)
                         // console.log(res)
                         var date = new Date()
                         var todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
@@ -1542,7 +1544,8 @@
                         // console.log(xmlhttp.responseText)
                         var parser = new DOMParser()
                         var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
-                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var jsonstring = xmldoc.getElementsByTagName('string')[0].childNodes[0].nodeValue
+                        var res = JSON.parse(jsonstring)
                         // console.log(res)
                         var date = new Date()
                         var todaystring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
@@ -1618,7 +1621,8 @@
                         var parser = new DOMParser()
                         var xmldoc = parser.parseFromString(xmlhttp.responseText, 'text/xml')
                         // console.log(JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML))
-                        var res = JSON.parse(xmldoc.getElementsByTagName('string')[0].innerHTML)
+                        var jsonstring = xmldoc.getElementsByTagName('string')[0].childNodes[0].nodeValue
+                        var res = JSON.parse(jsonstring)
                         for (var i = 0; i < res.length; i++) {
                             switch (res[i].FORECASTAREA) {
                                 case '渤海湾渔场':

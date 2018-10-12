@@ -1,7 +1,10 @@
 <template>
     <view class="body">
         <view class="column column-left">
-            <view class="cell text-huge">{{weatherData.temperature}}℃</view>
+            <view class="row-left">
+                <view class="cell text-huge">{{weatherData.temperature}}</view>
+                <view class="temp-marker">℃</view>
+            </view>
         </view>
         <view class="column column-right">
             <view class="row">
@@ -63,7 +66,7 @@ export default {
 .body {
     display: flex;
     flex-direction: row;
-    height: calc(100vw / 2.5);
+    height: 350rpx;
 }
 
 .column {
@@ -72,18 +75,29 @@ export default {
 }
 .column-left {
     flex: 4;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 .column-right {
     flex: 3;
+    height: 100%;
 }
 
+.row-left {
+    height: 38%;
+    display: flex;
+    flex-direction: row;
+}
 .row {
     flex: 1;
+    height: 33%;
     display: flex;
     flex-direction: row;
 }
 .icon {
     flex: 2;
+    height: 100%;
 }
 .font-icon {
     height: 100%;
@@ -94,6 +108,7 @@ export default {
 }
 .content {
     flex: 3;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -107,6 +122,11 @@ export default {
     justify-content: center;
 }
 
+.temp-marker{
+    color: #068784;
+    font-size: 50upx;
+    font-weight: bold;
+}
 .text-huge {
     color: #068784;
     font-size: 120upx;

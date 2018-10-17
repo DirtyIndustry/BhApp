@@ -163,6 +163,8 @@ const getBeihaiData = function (res) {
         option.series[0].markLine.label.textStyle.color = 'red'
         // 不显示日期
         option.xAxis.axisLabel.show = false
+        // 不显示最大值横线
+        option.series[1].markLine.data = []
         // 将地名字母代号转为中文地名
         res.refinedDatas[i].extrainfo[0].loc = getLocName(res.refinedDatas[i].extrainfo[0].loc)
         if (res.refinedDatas.length > 1) {   // 如果是青岛
@@ -210,6 +212,7 @@ const getBeihaiData = function (res) {
             let tide = buildTidedata(res.weihaiDatas[i].tideinfo.tidedata)
             let mark = buildMarkdata(res.weihaiDatas[i].tideinfo.markdata)
             data.option = getAstroOptionNew(tide, mark, res.weihaiDatas[i].tideinfo.max, res.weihaiDatas[i].tideinfo.min)
+            // 曲线显示范围
             data.option.grid = {
                 top: '8%',
                 left: '-3%',
@@ -217,6 +220,12 @@ const getBeihaiData = function (res) {
                 bottom: '20%',
                 containLabel: true
             }
+            // 曲线颜色蓝色
+            data.option.series[0].lineStyle.color = '#0092d4'
+            // label颜色绿色
+            data.option.series[0].label.color = '#1c8d3b'
+            // 时间颜色红色
+            data.option.series[0].markLine.label.textStyle.color = 'red'
             switch (res.weihaiDatas[i].REPORTAREA) {
                 case '成山头':
                     weihaiData.first = data
@@ -289,7 +298,7 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
                 inside: true,
                 fontSize: '14',
                 align: 'left',
-                padding: [0, 0, 30, 0],
+                padding: [0, 0, 15, 0],
                 color: 'red',
                 formatter: function (value, index) {
                     let date = new Date(value)
@@ -298,6 +307,12 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
             }, // end-axisLabel
             axisTick: {
                 show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    type: 'dashed',
+                    color: '#999999'
+                }
             },
             splitLine: {
                 show: false
@@ -314,7 +329,7 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
             {
                 name: '潮汐',
                 type: 'line',
-                smooth: 0.3,
+                smooth: 0.4,
                 silent: true,
                 animation: false,
                 symbolSize: 0.0001, // 曲线上数据点小圆圈的大小 不能设为0否则label不显示
@@ -355,7 +370,7 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
                         
                     }, // end-label-markLine
                     lineStyle: {
-                        type: 'dot',
+                        type: 'dashed',
                         color: '#999999'
                     },
                     data: markdata
@@ -389,7 +404,8 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
                     label: {
                         show: false
                     },
-                    data: [{ yAxis: max }, { yAxis: min }]
+                    // data: [{ yAxis: max }, { yAxis: min }]
+                    data: [{ yAxis: max }]
                 } // end-markLine
             }
         ] // end-series

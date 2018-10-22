@@ -14,7 +14,7 @@
                 <!-- 表头 -->
                 <view class="uni-flex uni-row fishery-header">
                     <view class="fishery-column-left fishery-cell text">渔场名称</view>
-                    <view class="fishery-column-left fishery-cell text">时效(h)</view>
+                    <view class="fishery-column-second fishery-cell text">时效(h)</view>
                     <view class="fishery-column-right fishery-column-middle fishery-cell text">波高(m)</view>
                     <view class="fishery-column-right fishery-cell text">浪向</view>
                 </view>
@@ -23,7 +23,7 @@
                     <!-- 第一列 渔场名 -->
                     <view class="fishery-column-left fishery-cell text" :class="{'text-small': item.FORECASTAREA.length > 4}">{{item.FORECASTAREA}}</view>
                     <!-- 第二列 时效 -->
-                    <view class="fishery-column-left">
+                    <view class="fishery-column-second">
                         <view class="fishery-cell text">24</view>
                         <view class="fishery-cell text">48</view>
                         <view class="fishery-cell text">72</view>
@@ -154,6 +154,12 @@ export default {
     /* 表格左边较窄的列 */
     .fishery-column-left {
         border-right: 1upx solid #999999;
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+    }
+    .fishery-column-second {
+        border-right: 1upx solid #999999;
         flex: 2;
         display: flex;
         flex-direction: column;
@@ -161,7 +167,7 @@ export default {
 
     /* 表格右边较宽的列 */
     .fishery-column-right {
-        flex: 3;
+        flex: 4;
         display: flex;
         flex-direction: column;
     }

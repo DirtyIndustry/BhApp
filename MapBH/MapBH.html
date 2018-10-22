@@ -1405,15 +1405,15 @@
             init()
             City()
             loadOceanInfo()
-            loadCityInfo('青岛', infoCityQD)
-            loadCityInfo('日照', infoCityRZ)
-            loadCityInfo('威海', infoCityWH)
-            loadCityInfo('烟台', infoCityYT)
-            loadCityInfo('潍坊', infoCityWF)
-            loadCityInfo('东营', infoCityDY)
-            loadCityInfo('滨州', infoCityBZ)
+            // loadCityInfo('青岛', infoCityQD)
+            // loadCityInfo('日照', infoCityRZ)
+            // loadCityInfo('威海', infoCityWH)
+            // loadCityInfo('烟台', infoCityYT)
+            // loadCityInfo('潍坊', infoCityWF)
+            // loadCityInfo('东营', infoCityDY)
+            // loadCityInfo('滨州', infoCityBZ)
+            loadSDSevenCity()
             loadFisheryInfo()
-
         } // end-window.onload()
 
         // 向服务器请求数据
@@ -1553,7 +1553,7 @@
                         var tomorrowstring = (date.getMonth() + 1) + '月' + date.getDate() + '日' + '0时'
                         for (var i = 0; i < res.length; i++) {
                             res[i].date = todaystring + '~' + tomorrowstring
-                            switch (ress[i].FORECASTAREA) {
+                            switch (res[i].FORECASTAREA) {
                                 case '日照近海':
                                     setCityInfo(res[i], infoCityRZ)
                                     break
@@ -1579,6 +1579,9 @@
                                     break
                             }
                         }
+                        
+                        setCityInfoPanel(infoCityQD)
+                        cityInfoPanelShow()
                         // console.log(output)
                     } else if (xmlhttp.status === 400) {
                         console.log('error 400')
@@ -2000,7 +2003,7 @@
         // 填写海区信息面板
         var setOceanInfoPanel = function (obj) {
             document.getElementById('ocean_oceanname').innerHTML = obj.seaname
-            document.getElementById('ocean_date').innerHTML = obj.publishdate
+            document.getElementById('ocean_date').innerHTML = obj.publishdate + '&nbsp;'
             document.getElementById('ocean_wavelvl').innerHTML = obj.waveheight24h
             document.getElementById('ocean_wavedir').innerHTML = obj.wavedir24h
             document.getElementById('ocean_undercurrent').innerHTML = obj.undercurrent24h
@@ -2015,7 +2018,7 @@
         // 填写城市信息面板
         var setCityInfoPanel = function (obj) {
             document.getElementById('city_cityname').innerHTML = obj.location
-            document.getElementById('city_date').innerHTML = obj.date
+            document.getElementById('city_date').innerHTML = obj.date + '&nbsp;'
             document.getElementById('city_fht').innerHTML = obj.firsthightime
             document.getElementById('city_fh').innerHTML = obj.firsthigh
             document.getElementById('city_flt').innerHTML = obj.firstlowtime
@@ -2031,7 +2034,7 @@
         // 填写渔场信息面板
         var setFisheryInfoPanel = function (obj) {
             document.getElementById('fishery_fisheryname').innerHTML = obj.location
-            document.getElementById('fishery_date').innerHTML = obj.date
+            document.getElementById('fishery_date').innerHTML = obj.date + '&nbsp;'
             document.getElementById('fishery_wavelvl').innerHTML = obj.WAVELVL
             document.getElementById('fishery_wavedir').innerHTML = obj.WAVEDIR
             document.getElementById('fishery_wavelvl48h').innerHTML = obj.WAVELVL48H

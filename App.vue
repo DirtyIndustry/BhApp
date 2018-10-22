@@ -1,6 +1,7 @@
 <script>
 	import appsettings from './utils/appsettings.js'
 	import utils from './utils/utils.js'
+	// import utils from 'http://123.234.129.237:8001/Maps/css/utils.js'
 	export default {
 		computed: {
 			// 系统信息

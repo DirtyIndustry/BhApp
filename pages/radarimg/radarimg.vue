@@ -6,7 +6,7 @@
                 <text class="text text-green">中国气象网&nbsp;&nbsp;</text>
         </view>
         <view class="separator"></view>
-        <picSwiperAlt :imgArray="imageArray" :startIndex="startIndex" :autoStart="autostart" interval="1500" ref="picswiper"></picSwiperAlt>
+        <picSwiperAlt :imgArray="imageArray" :startIndex="startIndex" :autoStart="autostart" buttonFade="false" interval="1500" ref="picswiper"></picSwiperAlt>
     </view>
 </template>
 

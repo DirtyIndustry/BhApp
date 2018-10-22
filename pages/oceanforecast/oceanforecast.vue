@@ -14,7 +14,7 @@
                         &nbsp;24小时海区预报
                     </view>
                     <!-- 日期 -->
-                    <view class="date text-small">{{forecastdate24h}}</view>
+                    <view class="date text-small">{{forecastdate24h}}&nbsp;</view>
                 </view>
                 <oceanTable :data="oceantable24h" />
             </view>
@@ -28,7 +28,7 @@
                         &nbsp;48小时海区预报
                     </view>
                     <!-- 日期 -->
-                    <view class="date text-small">{{forecastdate48h}}</view>
+                    <view class="date text-small">{{forecastdate48h}}&nbsp;</view>
                 </view>
                 <oceanTable :data="oceantable48h" />
             </view>
@@ -42,7 +42,7 @@
                         &nbsp;72小时海区预报
                     </view>
                     <!-- 日期 -->
-                    <view class="date text-small">{{forecastdate72h}}</view>
+                    <view class="date text-small">{{forecastdate72h}}&nbsp;</view>
                 </view>
                 <oceanTable :data="oceantable72h" />
             </view>
@@ -151,6 +151,7 @@ export default {
 
 <style scoped>
     @import "../../common/generic.css";
+    /* @import "http://123.234.129.237:8001/Maps/css/generic.css"; */
 
     .uni-flex {
         display: flex;

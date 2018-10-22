@@ -9,7 +9,7 @@
 			</picker>
 		</view>
 		<view class="separator"></view>
-		<picSwiperAlt :imgArray="imageArray" :titleArray="dateArray" :startIndex="startIndex" :autoStart="autostart" interval="1500"
+		<picSwiperAlt :imgArray="imageArray" :titleArray="dateArray" :startIndex="startIndex" :autoStart="autostart" buttonFade="false" interval="1500"
 		 ref="picswiper"></picSwiperAlt>
 	</view>
 </template>

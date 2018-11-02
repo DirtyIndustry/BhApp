@@ -10,9 +10,9 @@
             </view>
             <view class="table-row" v-for="(item, index) in data" :key="index">
                 <view class="table-cell border-left text">{{item.seaname}}</view>
-                <view class="table-cell text" :class="{'text-small': item.waveheight.length > 10}">{{item.waveheight}}</view>
-                <view class="table-cell text" :class="{'text-small': item.wavedir.length > 10}">{{item.wavedir}}</view>
-                <view class="table-cell text" :class="{'text-small': item.undercurrent.length > 10}">{{item.undercurrent}}</view>
+                <view class="table-cell" :class="{'text-xs': item.waveheight.length > 10, 'text': item.waveheight.length < 11}">{{item.waveheight}}</view>
+                <view class="table-cell" :class="{'text-xs': item.wavedir.length > 10, 'text': item.wavedir.length < 11}">{{item.wavedir}}</view>
+                <view class="table-cell" :class="{'text-xs': item.undercurrent.length > 10, 'text': item.undercurrent.length < 11}">{{item.undercurrent}}</view>
             </view>
         </view>
         <view class="separator" />

@@ -211,7 +211,7 @@
                     clearTimeout(this.btnTimer)
                     this.btnTimer = undefined
                 }
-                if (this.buttonFate === true) {
+                if (this.buttonFade === true) {
                     this.btnTimer = setTimeout(function(){
                         that.isButtonHide = true
                         that.btnTimer = undefined

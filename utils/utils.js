@@ -118,6 +118,8 @@ const getBeihaiData = function (res) {
             let mark = buildMarkdata(res.astroDatas[i].markdata)
             if (res.astroDatas[i].location === '第一海水浴场') {
                 tideData.optionTideOne = getAstroOptionNew(tide, mark, res.astroDatas[i].max, res.astroDatas[i].min)
+                // 调整上边距
+                tideData.optionTideOne.grid.top = '12%'
             } else {
                 let optiontwo = getAstroOptionNew(tide, mark, res.astroDatas[i].max, res.astroDatas[i].min)
                 optiontwo.series[0].lineStyle.color = '#0092d4'
@@ -132,6 +134,7 @@ const getBeihaiData = function (res) {
             let tide = buildTidedata(res.astroDatas[i].tidedata)
             let mark = buildMarkdata(res.astroDatas[i].markdata)
             tideData.optionTideOne = getAstroOptionNew(tide, mark, res.astroDatas[i].max, res.astroDatas[i].min)
+            tideData.optionTideOne.series[0].markPoint.symbol = 'none'
         }
     } // if-else 是否是青岛
     // 写入Vuex
@@ -165,6 +168,8 @@ const getBeihaiData = function (res) {
         option.xAxis.axisLabel.show = false
         // 不显示最大值横线
         option.series[1].markLine.data = []
+        // 不显示时间红点
+        option.series[0].markPoint.symbol = 'none'
         // 将地名字母代号转为中文地名
         res.refinedDatas[i].extrainfo[0].loc = getLocName(res.refinedDatas[i].extrainfo[0].loc)
         if (res.refinedDatas.length > 1) {   // 如果是青岛
@@ -226,6 +231,8 @@ const getBeihaiData = function (res) {
             data.option.series[0].label.color = '#1c8d3b'
             // 时间颜色红色
             data.option.series[0].markLine.label.textStyle.color = 'red'
+            // 不显示时间红点
+            data.option.series[0].markPoint.symbol = 'none'
             switch (res.weihaiDatas[i].REPORTAREA) {
                 case '成山头':
                     weihaiData.first = data
@@ -375,7 +382,6 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
                     },
                     data: markdata
                 }, // end-markLine
-                /*
                 markPoint: {
                     symbol: 'circle',
                     symbolSize: 4,
@@ -387,7 +393,6 @@ const getAstroOptionNew = function (tidedata, markdata, max, min) {
                         {coord:[nowtime, nowdata]}
                     ]
                 }
-                */
             },
             // 第二组series： 两条水平标线 表示三天最高和最低的潮位
             {

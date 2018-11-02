@@ -29,18 +29,18 @@
                     </view>
                 </view>
                 <!-- 第二行右 -->
-                <!-- <view class="menu-cell menu-column">
+                <view class="menu-cell menu-column">
                     <view class="menu-button" hover-class="hover" @tap="trendTap">
                         <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/trendPrediction_img.png" />
                         <view class="text-large text-green">趋势预测</view>
                     </view>
-                </view> -->
-                <view class="menu-cell menu-column">
+                </view>
+                <!-- <view class="menu-cell menu-column">
                     <view class="menu-button" hover-class="hover" @tap="newscenterTap">
                         <image class="menu-button-icon" mode="aspectFit" src="../../static/Images/news_img.png" />
                         <view class="text-large text-green">新闻中心</view>
                     </view>
-                </view>
+                </view> -->
             </view>
             <!-- 第三行 -->
             <view class="menu-row">
